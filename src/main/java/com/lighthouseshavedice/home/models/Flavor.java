@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "flavors")
-public class Flavors {
+public class Flavor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -45,10 +45,10 @@ public class Flavors {
     private Location location;
 
     //    Empty Constructor
-    public Flavors() {
+    public Flavor() {
     }
 
-    public Flavors(String flavor_name, String flavor_color, Double flavor_amt_qt, Integer flavor_amt_gal, String date_created, String created_by_name, String delivered_by_name, Integer days_stored, Boolean is_regular_flavor, Boolean is_specialty_flavor, User user, Location location) {
+    public Flavor(String flavor_name, String flavor_color, Double flavor_amt_qt, Integer flavor_amt_gal, String date_created, String created_by_name, String delivered_by_name, Integer days_stored, Boolean is_regular_flavor, Boolean is_specialty_flavor, User user, Location location) {
         this.flavor_name = flavor_name;
         this.flavor_color = flavor_color;
         this.flavor_amt_qt = flavor_amt_qt;
@@ -63,7 +63,7 @@ public class Flavors {
         this.location = location;
     }
 
-    public Flavors(long id, String flavor_name, String flavor_color, Double flavor_amt_qt, Integer flavor_amt_gal, String date_created, String created_by_name, String delivered_by_name, Integer days_stored, Boolean is_regular_flavor, Boolean is_specialty_flavor, User user) {
+    public Flavor(long id, String flavor_name, String flavor_color, Double flavor_amt_qt, Integer flavor_amt_gal, String date_created, String created_by_name, String delivered_by_name, Integer days_stored, Boolean is_regular_flavor, Boolean is_specialty_flavor, User user) {
         this.id = id;
         this.flavor_name = flavor_name;
         this.flavor_color = flavor_color;

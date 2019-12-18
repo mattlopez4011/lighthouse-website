@@ -17,19 +17,19 @@ public class Location {
 
 //    Relationship with Flavors table
     @OneToMany(mappedBy = "location", cascade = CascadeType.ALL)
-    private List<Flavors> flavors;
+    private List<Flavor> flavors;
 
     public Location() {
     }
 
-    public Location(long id, String location_name, String location_address, List<Flavors> flavors) {
+    public Location(long id, String location_name, String location_address, List<Flavor> flavors) {
         this.id = id;
         this.location_name = location_name;
         this.location_address = location_address;
         this.flavors = flavors;
     }
 
-    public Location(String location_name, String location_address, List<Flavors> flavors) {
+    public Location(String location_name, String location_address, List<Flavor> flavors) {
         this.location_name = location_name;
         this.location_address = location_address;
         this.flavors = flavors;
@@ -60,11 +60,11 @@ public class Location {
         this.location_address = location_address;
     }
 
-    public List<Flavors> getFlavors() {
+    public List<Flavor> getFlavors() {
         return flavors;
     }
 
-    public void setFlavors(List<Flavors> flavors) {
+    public void setFlavors(List<Flavor> flavors) {
         this.flavors = flavors;
     }
 }

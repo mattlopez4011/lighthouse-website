@@ -31,7 +31,7 @@ public class User {
 
             //    Relationships with other tables
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Flavors> flavors;
+    private List<Flavor> flavors;
 
 
     public User() {
@@ -50,7 +50,7 @@ public class User {
         this.is_admin = is_admin;
     }
 
-    public User(String name, String username, String password, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<Flavors> flavors) {
+    public User(String name, String username, String password, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<Flavor> flavors) {
         this.name = name;
         this.username = username;
         this.password = password;
@@ -145,11 +145,11 @@ public class User {
         this.is_admin = is_admin;
     }
 
-    public List<Flavors> getFlavors() {
+    public List<Flavor> getFlavors() {
         return flavors;
     }
 
-    public void setFlavors(List<Flavors> flavors) {
+    public void setFlavors(List<Flavor> flavors) {
         this.flavors = flavors;
     }
 }
