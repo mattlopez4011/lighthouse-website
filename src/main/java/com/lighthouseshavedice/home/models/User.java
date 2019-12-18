@@ -35,6 +35,9 @@ public class User {
     //    Relationship with flavors_history table
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<FlavorHistory> flavorsHistory;
+    //    Relationship with locations table
+    @OneToMany(mappedBy = "user_loc", cascade = CascadeType.ALL)
+    private List<Location> locations;
 
 
     public User() {
@@ -48,21 +51,8 @@ public class User {
 
     }
 
-    public User(long id, String name, String username, String password, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin) {
+    public User(long id, String name, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<Flavor> flavors, List<FlavorHistory> flavorsHistory, List<Location> locations) {
         this.id = id;
-        this.name = name;
-        this.username = username;
-        this.password = password;
-        this.phone_number = phone_number;
-        this.gender = gender;
-        this.profile_pic = profile_pic;
-        this.last_login = last_login;
-        this.date_created = date_created;
-        this.is_admin = is_admin;
-    }
-
-
-    public User(String name, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<Flavor> flavors, List<FlavorHistory> flavorsHistory) {
         this.name = name;
         this.phone_number = phone_number;
         this.gender = gender;
@@ -72,6 +62,22 @@ public class User {
         this.is_admin = is_admin;
         this.flavors = flavors;
         this.flavorsHistory = flavorsHistory;
+        this.locations = locations;
+    }
+
+    public User(String name, String username, String password, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<Flavor> flavors, List<FlavorHistory> flavorsHistory, List<Location> locations) {
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        this.phone_number = phone_number;
+        this.gender = gender;
+        this.profile_pic = profile_pic;
+        this.last_login = last_login;
+        this.date_created = date_created;
+        this.is_admin = is_admin;
+        this.flavors = flavors;
+        this.flavorsHistory = flavorsHistory;
+        this.locations = locations;
     }
 
     //    Getters and Setters
@@ -169,5 +175,13 @@ public class User {
 
     public void setFlavorsHistory(List<FlavorHistory> flavorsHistory) {
         this.flavorsHistory = flavorsHistory;
+    }
+
+    public List<Location> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(List<Location> locations) {
+        this.locations = locations;
     }
 }

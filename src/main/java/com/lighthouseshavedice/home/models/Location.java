@@ -1,6 +1,8 @@
 package com.lighthouseshavedice.home.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -18,6 +20,11 @@ public class Location {
 //    Relationship with Flavors table
     @OneToMany(mappedBy = "location", cascade = CascadeType.ALL)
     private List<Flavor> flavors;
+    //    Relationship with Users table
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "user_id")
+    private User user_loc;
 
     public Location() {
     }
@@ -29,13 +36,15 @@ public class Location {
         this.flavors = flavors;
     }
 
-    public Location(String location_name, String location_address, List<Flavor> flavors) {
+    public Location(String location_name, String location_address, List<Flavor> flavors, User user_loc) {
         this.location_name = location_name;
         this.location_address = location_address;
         this.flavors = flavors;
+        this.user_loc = user_loc;
     }
 
-//=============== Getters and Setters
+
+    //=============== Getters and Setters
     public long getId() {
         return id;
     }
@@ -66,5 +75,13 @@ public class Location {
 
     public void setFlavors(List<Flavor> flavors) {
         this.flavors = flavors;
+    }
+
+    public User getUser_loc() {
+        return user_loc;
+    }
+
+    public void setUser_loc(User user_loc) {
+        this.user_loc = user_loc;
     }
 }

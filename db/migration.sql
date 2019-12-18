@@ -1,5 +1,6 @@
 DROP DATABASE IF EXISTS lighthouse_db;
 
+
 CREATE DATABASE lighthouse_db;
 
 
