@@ -37,6 +37,14 @@ public class User {
     public User() {
     }
 
+    //This is for spring security
+    public User(User copy){
+        id = copy.id;
+        username = copy.username;
+        password = copy.password;
+
+    }
+
     public User(long id, String name, String username, String password, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin) {
         this.id = id;
         this.name = name;
