@@ -29,9 +29,12 @@ public class User {
     @Column(columnDefinition = "BOOLEAN")
     private Boolean is_admin;
 
-            //    Relationships with other tables
+            //    Relationship with flavors table
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Flavor> flavors;
+    //    Relationship with flavors_history table
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<FlavorHistory> flavorsHistory;
 
 
     public User() {
@@ -58,10 +61,9 @@ public class User {
         this.is_admin = is_admin;
     }
 
-    public User(String name, String username, String password, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<Flavor> flavors) {
+
+    public User(String name, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<Flavor> flavors, List<FlavorHistory> flavorsHistory) {
         this.name = name;
-        this.username = username;
-        this.password = password;
         this.phone_number = phone_number;
         this.gender = gender;
         this.profile_pic = profile_pic;
@@ -69,10 +71,10 @@ public class User {
         this.date_created = date_created;
         this.is_admin = is_admin;
         this.flavors = flavors;
+        this.flavorsHistory = flavorsHistory;
     }
 
-
-//    Getters and Setters
+    //    Getters and Setters
     public long getId() {
         return id;
     }
@@ -159,5 +161,13 @@ public class User {
 
     public void setFlavors(List<Flavor> flavors) {
         this.flavors = flavors;
+    }
+
+    public List<FlavorHistory> getFlavorsHistory() {
+        return flavorsHistory;
+    }
+
+    public void setFlavorsHistory(List<FlavorHistory> flavorsHistory) {
+        this.flavorsHistory = flavorsHistory;
     }
 }

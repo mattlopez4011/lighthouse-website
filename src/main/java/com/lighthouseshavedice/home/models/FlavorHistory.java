@@ -1,6 +1,8 @@
 package com.lighthouseshavedice.home.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -22,6 +24,12 @@ public class FlavorHistory {
     @Column(columnDefinition = "INT")
     private String amtMadeGal;
 
+    //    Relationships with User table
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "user_id")
+    private User user;
+
     public FlavorHistory() {
     }
 
@@ -35,16 +43,15 @@ public class FlavorHistory {
         this.amtMadeGal = amtMadeGal;
     }
 
-    public FlavorHistory(String flavorName, String createdByName, String enteredByName, String dateMade, String amtMadeQt, String amtMadeGal) {
+    public FlavorHistory(String flavorName, String createdByName, String enteredByName, String dateMade, String amtMadeQt, String amtMadeGal, User user) {
         this.flavorName = flavorName;
         this.createdByName = createdByName;
         this.enteredByName = enteredByName;
         this.dateMade = dateMade;
         this.amtMadeQt = amtMadeQt;
         this.amtMadeGal = amtMadeGal;
+        this.user = user;
     }
-
-
 
     public long getId() {
         return id;
@@ -100,5 +107,13 @@ public class FlavorHistory {
 
     public void setAmtMadeGal(String amtMadeGal) {
         this.amtMadeGal = amtMadeGal;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
