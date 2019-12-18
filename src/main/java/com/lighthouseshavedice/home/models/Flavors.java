@@ -9,7 +9,6 @@ import java.util.Date;
 @Entity
 @Table(name = "flavors")
 public class Flavors {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -22,7 +21,7 @@ public class Flavors {
     @Column(columnDefinition = "INT NOT NULL ")
     private Integer flavor_amt_gal;
     @Column(columnDefinition = "DATE")
-    private Date date_created;
+    private String date_created;
     @Column(columnDefinition = "VARCHAR(255)")
     private String created_by_name;
     @Column(columnDefinition = "VARCHAR(255)")
@@ -49,7 +48,7 @@ public class Flavors {
     public Flavors() {
     }
 
-    public Flavors(String flavor_name, String flavor_color, Double flavor_amt_qt, Integer flavor_amt_gal, Date date_created, String created_by_name, String delivered_by_name, Integer days_stored, Boolean is_regular_flavor, Boolean is_specialty_flavor, User user, Location location) {
+    public Flavors(String flavor_name, String flavor_color, Double flavor_amt_qt, Integer flavor_amt_gal, String date_created, String created_by_name, String delivered_by_name, Integer days_stored, Boolean is_regular_flavor, Boolean is_specialty_flavor, User user, Location location) {
         this.flavor_name = flavor_name;
         this.flavor_color = flavor_color;
         this.flavor_amt_qt = flavor_amt_qt;
@@ -64,7 +63,7 @@ public class Flavors {
         this.location = location;
     }
 
-    public Flavors(long id, String flavor_name, String flavor_color, Double flavor_amt_qt, Integer flavor_amt_gal, Date date_created, String created_by_name, String delivered_by_name, Integer days_stored, Boolean is_regular_flavor, Boolean is_specialty_flavor, User user) {
+    public Flavors(long id, String flavor_name, String flavor_color, Double flavor_amt_qt, Integer flavor_amt_gal, String date_created, String created_by_name, String delivered_by_name, Integer days_stored, Boolean is_regular_flavor, Boolean is_specialty_flavor, User user) {
         this.id = id;
         this.flavor_name = flavor_name;
         this.flavor_color = flavor_color;
@@ -119,11 +118,11 @@ public class Flavors {
         this.flavor_amt_gal = flavor_amt_gal;
     }
 
-    public Date getDate_created() {
+    public String getDate_created() {
         return date_created;
     }
 
-    public void setDate_created(Date date_created) {
+    public void setDate_created(String date_created) {
         this.date_created = date_created;
     }
 
