@@ -41,6 +41,9 @@ public class User {
     //    Relationship with inventory_details table
     @OneToMany(mappedBy = "user_inventDetails", cascade = CascadeType.ALL)
     private List<InventoryDetails> inventoryDetails;
+    //    Relationship with timesheet_clock_in table
+    @OneToMany(mappedBy = "user_clock_in", cascade = CascadeType.ALL)
+    private List<TimesheetClockIn> timesheetClockIn;
 
 
     public User() {
@@ -54,7 +57,7 @@ public class User {
 
     }
 
-    public User(long id, String name, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<Flavor> flavors, List<FlavorHistory> flavorsHistory, List<Location> locations, List<InventoryDetails> inventoryDetails) {
+    public User(long id, String name, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<Flavor> flavors, List<FlavorHistory> flavorsHistory, List<Location> locations, List<InventoryDetails> inventoryDetails, List<TimesheetClockIn> timesheetClockIn) {
         this.id = id;
         this.name = name;
         this.phone_number = phone_number;
@@ -67,9 +70,10 @@ public class User {
         this.flavorsHistory = flavorsHistory;
         this.locations = locations;
         this.inventoryDetails = inventoryDetails;
+        this.timesheetClockIn = timesheetClockIn;
     }
 
-    public User(String name, String username, String password, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<Flavor> flavors, List<FlavorHistory> flavorsHistory, List<Location> locations, List<InventoryDetails> inventoryDetails) {
+    public User(String name, String username, String password, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<Flavor> flavors, List<FlavorHistory> flavorsHistory, List<Location> locations, List<InventoryDetails> inventoryDetails, List<TimesheetClockIn> timesheetClockIn) {
         this.name = name;
         this.username = username;
         this.password = password;
@@ -83,6 +87,7 @@ public class User {
         this.flavorsHistory = flavorsHistory;
         this.locations = locations;
         this.inventoryDetails = inventoryDetails;
+        this.timesheetClockIn = timesheetClockIn;
     }
 
     //    Getters and Setters
@@ -196,5 +201,13 @@ public class User {
 
     public void setInventoryDetails(List<InventoryDetails> inventoryDetails) {
         this.inventoryDetails = inventoryDetails;
+    }
+
+    public List<TimesheetClockIn> getTimesheetClockIn() {
+        return timesheetClockIn;
+    }
+
+    public void setTimesheetClockIn(List<TimesheetClockIn> timesheetClockIn) {
+        this.timesheetClockIn = timesheetClockIn;
     }
 }
