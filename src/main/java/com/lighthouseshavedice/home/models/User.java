@@ -44,6 +44,9 @@ public class User {
     //    Relationship with timesheet_clock_in table
     @OneToMany(mappedBy = "user_clock_in", cascade = CascadeType.ALL)
     private List<TimesheetClockIn> timesheetClockIn;
+    //    Relationship with register table
+    @OneToMany(mappedBy = "user_register", cascade = CascadeType.ALL)
+    private List<Register> registers;
 
 
     public User() {
@@ -57,7 +60,7 @@ public class User {
 
     }
 
-    public User(long id, String name, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<Flavor> flavors, List<FlavorHistory> flavorsHistory, List<Location> locations, List<InventoryDetails> inventoryDetails, List<TimesheetClockIn> timesheetClockIn) {
+    public User(long id, String name, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<Flavor> flavors, List<FlavorHistory> flavorsHistory, List<Location> locations, List<InventoryDetails> inventoryDetails, List<TimesheetClockIn> timesheetClockIn, List<Register> registers) {
         this.id = id;
         this.name = name;
         this.phone_number = phone_number;
@@ -71,9 +74,10 @@ public class User {
         this.locations = locations;
         this.inventoryDetails = inventoryDetails;
         this.timesheetClockIn = timesheetClockIn;
+        this.registers = registers;
     }
 
-    public User(String name, String username, String password, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<Flavor> flavors, List<FlavorHistory> flavorsHistory, List<Location> locations, List<InventoryDetails> inventoryDetails, List<TimesheetClockIn> timesheetClockIn) {
+    public User(String name, String username, String password, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<Flavor> flavors, List<FlavorHistory> flavorsHistory, List<Location> locations, List<InventoryDetails> inventoryDetails, List<TimesheetClockIn> timesheetClockIn, List<Register> registers) {
         this.name = name;
         this.username = username;
         this.password = password;
@@ -88,6 +92,7 @@ public class User {
         this.locations = locations;
         this.inventoryDetails = inventoryDetails;
         this.timesheetClockIn = timesheetClockIn;
+        this.registers = registers;
     }
 
     //    Getters and Setters
@@ -209,5 +214,13 @@ public class User {
 
     public void setTimesheetClockIn(List<TimesheetClockIn> timesheetClockIn) {
         this.timesheetClockIn = timesheetClockIn;
+    }
+
+    public List<Register> getRegisters() {
+        return registers;
+    }
+
+    public void setRegisters(List<Register> registers) {
+        this.registers = registers;
     }
 }
