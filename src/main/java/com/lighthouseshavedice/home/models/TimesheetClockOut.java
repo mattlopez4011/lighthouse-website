@@ -5,8 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "timesheet_clock_in")
-public class TimesheetClockIn {
+@Table(name = "timesheet_clock_out")
+public class TimesheetClockOut {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -15,32 +15,31 @@ public class TimesheetClockIn {
     @Column(columnDefinition = "VARCHAR(50)")
     private String name;
     @Column(columnDefinition = "DATE")
-    private String clockIn;
+    private String clockOut;
 
     //    Relationship with Users table
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "user_id")
-    private User user_clock_in;
+    private User user_clock_out;
 
-    public TimesheetClockIn() {
+    public TimesheetClockOut() {
     }
 
-    public TimesheetClockIn(long id, String username, String name, String clockIn, User user_clock_in) {
+    public TimesheetClockOut(long id, String username, String name, String clockOut, User user_clock_out) {
         this.id = id;
         this.username = username;
         this.name = name;
-        this.clockIn = clockIn;
-        this.user_clock_in = user_clock_in;
+        this.clockOut = clockOut;
+        this.user_clock_out = user_clock_out;
     }
 
-    public TimesheetClockIn(String username, String name, String clockIn, User user_clock_in) {
+    public TimesheetClockOut(String username, String name, String clockOut, User user_clock_out) {
         this.username = username;
         this.name = name;
-        this.clockIn = clockIn;
-        this.user_clock_in = user_clock_in;
+        this.clockOut = clockOut;
+        this.user_clock_out = user_clock_out;
     }
-
 
     public long getId() {
         return id;
@@ -66,19 +65,19 @@ public class TimesheetClockIn {
         this.name = name;
     }
 
-    public String getClockIn() {
-        return clockIn;
+    public String getClockOut() {
+        return clockOut;
     }
 
-    public void setClockIn(String clockIn) {
-        this.clockIn = clockIn;
+    public void setClockOut(String clockOut) {
+        this.clockOut = clockOut;
     }
 
-    public User getUser_clock_in() {
-        return user_clock_in;
+    public User getUser_clock_out() {
+        return user_clock_out;
     }
 
-    public void setUser_clock_in(User user_clock_in) {
-        this.user_clock_in = user_clock_in;
+    public void setUser_clock_out(User user_clock_out) {
+        this.user_clock_out = user_clock_out;
     }
 }
