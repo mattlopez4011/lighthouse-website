@@ -25,22 +25,33 @@ public class Location {
     @JsonIgnore
     @JoinColumn(name = "user_id")
     private User user_loc;
+    //    Relationship with locations table
+    @OneToMany(mappedBy = "user_loc", cascade = CascadeType.ALL)
+    private List<Location> locations;
+    //    Relationship with registers table
+    @OneToMany(mappedBy = "location_register", cascade = CascadeType.ALL)
+    private List<Register> registers;
 
     public Location() {
     }
 
-    public Location(long id, String location_name, String location_address, List<Flavor> flavors) {
+    public Location(long id, String location_name, String location_address, List<Flavor> flavors, User user_loc, List<Location> locations, List<Register> registers) {
         this.id = id;
         this.location_name = location_name;
         this.location_address = location_address;
         this.flavors = flavors;
+        this.user_loc = user_loc;
+        this.locations = locations;
+        this.registers = registers;
     }
 
-    public Location(String location_name, String location_address, List<Flavor> flavors, User user_loc) {
+    public Location(String location_name, String location_address, List<Flavor> flavors, User user_loc, List<Location> locations, List<Register> registers) {
         this.location_name = location_name;
         this.location_address = location_address;
         this.flavors = flavors;
         this.user_loc = user_loc;
+        this.locations = locations;
+        this.registers = registers;
     }
 
 
@@ -83,5 +94,21 @@ public class Location {
 
     public void setUser_loc(User user_loc) {
         this.user_loc = user_loc;
+    }
+
+    public List<Location> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(List<Location> locations) {
+        this.locations = locations;
+    }
+
+    public List<Register> getRegisters() {
+        return registers;
+    }
+
+    public void setRegisters(List<Register> registers) {
+        this.registers = registers;
     }
 }

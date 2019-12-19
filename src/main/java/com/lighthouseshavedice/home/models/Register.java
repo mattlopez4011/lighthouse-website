@@ -32,11 +32,16 @@ public class Register {
     @JsonIgnore
     @JoinColumn(name = "user_id")
     private User user_register;
+    //    Relationship with locations table
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "location_id")
+    private Location location_register;
 
     public Register() {
     }
 
-    public Register(long id, String cashierName, String paymentMethod, String timeOfSale, Float saleAmount, Float taxAmount, Float discountAmount, Integer itemsSold, User user_register) {
+    public Register(long id, String cashierName, String paymentMethod, String timeOfSale, Float saleAmount, Float taxAmount, Float discountAmount, Integer itemsSold, User user_register, Location location_register) {
         this.id = id;
         this.cashierName = cashierName;
         this.paymentMethod = paymentMethod;
@@ -46,9 +51,10 @@ public class Register {
         this.discountAmount = discountAmount;
         this.itemsSold = itemsSold;
         this.user_register = user_register;
+        this.location_register = location_register;
     }
 
-    public Register(String cashierName, String paymentMethod, String timeOfSale, Float saleAmount, Float taxAmount, Float discountAmount, Integer itemsSold, User user_register) {
+    public Register(String cashierName, String paymentMethod, String timeOfSale, Float saleAmount, Float taxAmount, Float discountAmount, Integer itemsSold, User user_register, Location location_register) {
         this.cashierName = cashierName;
         this.paymentMethod = paymentMethod;
         this.timeOfSale = timeOfSale;
@@ -57,6 +63,7 @@ public class Register {
         this.discountAmount = discountAmount;
         this.itemsSold = itemsSold;
         this.user_register = user_register;
+        this.location_register = location_register;
     }
 
     public long getId() {
@@ -131,5 +138,12 @@ public class Register {
         this.user_register = user_register;
     }
 
+    public Location getLocation_register() {
+        return location_register;
+    }
+
+    public void setLocation_register(Location location_register) {
+        this.location_register = location_register;
+    }
 
 }
