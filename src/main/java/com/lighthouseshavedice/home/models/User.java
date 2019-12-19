@@ -38,6 +38,9 @@ public class User {
     //    Relationship with locations table
     @OneToMany(mappedBy = "user_loc", cascade = CascadeType.ALL)
     private List<Location> locations;
+    //    Relationship with inventory_details table
+    @OneToMany(mappedBy = "user_inventDetails", cascade = CascadeType.ALL)
+    private List<InventoryDetails> inventoryDetails;
 
 
     public User() {
@@ -51,7 +54,7 @@ public class User {
 
     }
 
-    public User(long id, String name, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<Flavor> flavors, List<FlavorHistory> flavorsHistory, List<Location> locations) {
+    public User(long id, String name, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<Flavor> flavors, List<FlavorHistory> flavorsHistory, List<Location> locations, List<InventoryDetails> inventoryDetails) {
         this.id = id;
         this.name = name;
         this.phone_number = phone_number;
@@ -63,9 +66,10 @@ public class User {
         this.flavors = flavors;
         this.flavorsHistory = flavorsHistory;
         this.locations = locations;
+        this.inventoryDetails = inventoryDetails;
     }
 
-    public User(String name, String username, String password, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<Flavor> flavors, List<FlavorHistory> flavorsHistory, List<Location> locations) {
+    public User(String name, String username, String password, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<Flavor> flavors, List<FlavorHistory> flavorsHistory, List<Location> locations, List<InventoryDetails> inventoryDetails) {
         this.name = name;
         this.username = username;
         this.password = password;
@@ -78,6 +82,7 @@ public class User {
         this.flavors = flavors;
         this.flavorsHistory = flavorsHistory;
         this.locations = locations;
+        this.inventoryDetails = inventoryDetails;
     }
 
     //    Getters and Setters
@@ -183,5 +188,13 @@ public class User {
 
     public void setLocations(List<Location> locations) {
         this.locations = locations;
+    }
+
+    public List<InventoryDetails> getInventoryDetails() {
+        return inventoryDetails;
+    }
+
+    public void setInventoryDetails(List<InventoryDetails> inventoryDetails) {
+        this.inventoryDetails = inventoryDetails;
     }
 }
