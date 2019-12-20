@@ -1,0 +1,15 @@
+
+.parentBox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.box{
+    width: 300px;
+
+}
+
+.dash-img{
+    width: 100%;
+}
