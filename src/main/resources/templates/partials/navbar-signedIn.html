@@ -1,0 +1,73 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <th:block th:fragment="signedIn-navbar">
+        <link rel="stylesheet" th:href="@{/css/signedIn-navbar.css}"/>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+        <!-- large Nav -->
+        <nav id="largeNav" class="navbar navbar-expand-md navbar-dark mb-4 sidebar">
+            <div class="navbar-fixed">
+                <ul class="nav">
+                    <li class="nav-item"><a class="text-decoration-none" th:href="@{'/dashboard'}"><img id="sidebarLogo"
+                                                                                                        src="/img/Logo/shNavbarBrandLogo.png"></a></li>
+
+<!--                    <li class="nav-item" id="quitCoin"><i class="fas fa-smoking-ban"></i> <span th:text="${smoke.points}"></span></li>-->
+                    <li class="nav-item" id="quitCoin"><i class="fas fa-smoking-ban"></i> <span>25</span></li>
+
+                    <div id="divideDivNavbar"></div>
+
+                    <li class="nav-item"><a class="nav-link" th:href="@{'/profile/' + ${user.id}}"><i class="fas fa-user"></i>
+                        Profile
+                    </a></li>
+                    <li
+                            class="nav-item"><a class="nav-link" th:href="@{'/verification'}"><i class="far fa-file-alt"></i>
+                        Verifications
+                    </a></li>
+                    <li
+                            class="nav-item"><a class="nav-link" th:href="@{'/message'}"><i class="far fa-envelope"></i> Messages
+                    </a></li>
+                    <li
+                            class="nav-item"><a class="nav-link" th:href="@{'/logout'}"><i class="fas fa-sign-out-alt"></i> Logout
+                    </a></li>
+                    <li class="nav-item">
+                    </li>
+                    <li
+                            class="nav-item"><a class="nav-link" th:href="@{'/aboutus'}"> About Us
+                    </a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- small Nav (mobile) -->
+        <nav id="smallNav" class="navbar navbar-dark bg-black">
+            <a class="text-decoration-none" th:href="@{'/dashboard'}"><img id="sidebarLogoMobile" src="/img/Logo/shNavbarBrandLogo.png"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExample01">
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link" th:href="@{'/profile/' + ${user.id}}"><i
+                            class="fas fa-smoking-ban"></i> <span>26</span></a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{'/profile/' + ${user.id}}"><i class="fas fa-user"></i>
+                        Profile
+                    </a></li>
+                    <li
+                            class="nav-item"><a class="nav-link" th:href="@{'/verification'}"><i class="far fa-file-alt"></i>
+                        Verifications
+                    </a></li>
+                    <li
+                            class="nav-item"><a class="nav-link" th:href="@{'/message'}"><i class="far fa-envelope"></i> Messages
+                    </a></li>
+                    <li
+                            class="nav-item"><a class="nav-link" th:href="@{'/logout'}"><i class="fas fa-sign-out-alt"></i> Logout
+                    </a></li>
+                    <li class="nav-item">
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </th:block>
+</html>

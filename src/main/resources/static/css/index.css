@@ -1,0 +1,20 @@
+body{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 60px 100% 100px;
+}
+
+.main-navbar{
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.main-container{
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+footer{
+    grid-column: 1/2;
+    grid-row: 3/4;
+}

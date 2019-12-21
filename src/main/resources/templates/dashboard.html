@@ -1,0 +1,34 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="partials/head :: main-header"/>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <link rel="stylesheet" th:href="@{/css/dashboard.css}" />
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+<body>
+<th:block th:replace="partials/navbar-signedIn :: signedIn-navbar"/>
+
+<main class="container">
+    <h1>Welcome, <span th:text="${user.name}"></span></h1>
+    <br>
+    <h1>Choose one:</h1>
+    <section class="parentBox">
+        <div class="box box1">
+            <h3>Inventory</h3>
+            <img class="dash-img" src="/img/charts.jpg" alt="inventory image">
+        </div>
+        <div class="box box2">
+            <h3>Time Tracking</h3>
+            <img class="dash-img" src="/img/clock-in.jpg" alt="time tracking image">
+        </div>
+        <div class="box box3">
+            <h3>Register</h3>
+            <img class="dash-img" src="/img/register.png" alt="cash register image">
+        </div>
+    </section>
+</main>
+
+<th:block th:replace="partials/footer :: main-footer"/>
+</body>
+</html>
