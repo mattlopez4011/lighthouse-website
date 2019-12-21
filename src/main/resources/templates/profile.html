@@ -1,0 +1,19 @@
+<html xmlns:th="http://www.thymeleaf.org"><html lang="en">
+<head>
+    <th:block th:replace="partials/head :: main-header"/>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+<th:block th:replace="partials/navbar-signedIn :: signedIn-navbar"/>
+
+<main class="container">
+    <h1><span th:text="${user.name}"></span>'s Profile</h1>
+</main>
+
+
+<th:block th:replace="partials/footer :: main-footer"/>
+</body>
+</html>
