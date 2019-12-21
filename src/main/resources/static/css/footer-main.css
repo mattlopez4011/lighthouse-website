@@ -1,0 +1,12 @@
+.mainFooterContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: lightskyblue;
+    width: 100%;
+
+}
+
+footer{
+    height: max-content;
+}

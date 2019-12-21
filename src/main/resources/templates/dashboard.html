@@ -1,12 +1,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <th:block th:replace="partials/head :: main-header"/>
-    <link rel="stylesheet" th:href="@{/css/index.css}"/>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
     <link rel="stylesheet" th:href="@{/css/dashboard.css}" />
     <meta charset="UTF-8">
     <title>Dashboard</title>
 </head>
 <body>
+<th:block th:replace="partials/navbar-signedIn :: signedIn-navbar"/>
 
 <main class="container">
     <h1>Welcome, <span th:text="${user.name}"></span></h1>
@@ -28,5 +29,6 @@
     </section>
 </main>
 
+<th:block th:replace="partials/footer :: main-footer"/>
 </body>
 </html>
