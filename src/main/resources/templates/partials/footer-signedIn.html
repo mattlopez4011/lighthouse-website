@@ -1,9 +1,29 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<th:block th:fragment="main-footer">
+<th:block th:fragment="signedIn-footer">
     <footer>
-        <link rel="stylesheet" src="/css/footer.css">
-        <div id="divideDiv" class="divideDiv"></div>
+        <link rel="stylesheet" src="/css/footer-signedIn.css" th:href="@{/css/footer-signedIn.css}"/>
+<!--        <link rel="stylesheet" src="/css/footer-main.css"  th:href="@{/css/footer-main.css}"/>-->
+        <!--        <div id="divideDiv" class="divideDiv"></div>-->
+        <div class="signedInFooterContainer">
+            <ul>
+                <li>Lorem Item 1</li>
+                <li>Lorem Item 2</li>
+                <li>Lorem Item 3</li>
+            </ul>
+
+            <ul>
+                <li>Lorem Item 1</li>
+                <li>Lorem Item 2</li>
+                <li>Lorem Item 3</li>
+            </ul>
+
+            <ul>
+                <li>Lorem Item 1</li>
+                <li>Lorem Item 2</li>
+                <li>Lorem Item 3</li>
+            </ul>
+        </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

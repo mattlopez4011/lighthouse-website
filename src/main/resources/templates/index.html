@@ -7,11 +7,13 @@
         <title>Home</title>
     </head>
     <body>
+<!--    <div class="row">-->
         <th:block th:class="main-navbar" th:replace="partials/navbar-main :: signedIn-navbar"/>
-            <main class="main-container">
-                <h1>Welcome to home page </h1>
+        <main class="main-container">
+            <h1>Welcome to home page </h1>
 
-            </main>
+        </main>
         <th:block th:replace="partials/footer-main :: main-footer"/>
+<!--    </div>-->
     </body>
 </html>
