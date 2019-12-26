@@ -13,9 +13,9 @@
     <h1><span th:text="${user.name}"></span>'s Profile</h1>
 </main>
 
-<th:block th:if="${user.id == #authentication.principal.id}">
+
     <a th:href="@{'/profile/' + ${user.id} + '/edit'}" class="btn btn-warning editProfileBtn" id="smB">Edit Profile</a>
-</th:block>
+
 
 
 <th:block th:replace="partials/footer :: main-footer"/>

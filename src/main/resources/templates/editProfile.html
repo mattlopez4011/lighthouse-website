@@ -5,8 +5,8 @@
 </head>
 <body>
     <form class="formLayout" th:action="'/profile/' + ${user.id} + '/edit'" th:method="post" th:object="${user}">
-        <h1>Edit Name: <input type="text" id="name" th:value="${user.name}"></h1>
-        <h1>Edit Username: <input type="text" id="username" th:value="${user.username}"></h1>
+        <h1>Edit Name: <input th:field="*{name}" type="text" id="name" th:value="${user.name}"></h1>
+        <h1>Edit Username: <input th:field="*{username}" type="text" id="username" th:value="${user.username}"></h1>
         <button class="btn btn-warning update-button">Update</button>
     </form>
 </body>
