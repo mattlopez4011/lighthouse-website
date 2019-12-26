@@ -22,4 +22,12 @@ public class ProfileController {
 
         return "profile";
     }
+
+    @GetMapping("edit/{id}/profile")
+    public String editProfile(Model model, @PathVariable long id){
+        model.addAttribute("user", userDao.getOne(id));
+
+        return "editProfile";
+    }
+
 }
