@@ -18,7 +18,7 @@ public class ProfileController {
         this.userDao = userDao;
     }
 
-    @GetMapping("/profile/{id}")
+    @GetMapping("profile/{id}")
     public String showProfile(Model model, @PathVariable long id){
 
         model.addAttribute("user", userDao.getOne(id));
