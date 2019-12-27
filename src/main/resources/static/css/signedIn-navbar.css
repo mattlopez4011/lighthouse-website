@@ -41,3 +41,7 @@ nav-wrapper {
 .nav-link{
     font-size: 20px;
 }
+
+#navbarLogoIdx{
+    height: 95px;
+}

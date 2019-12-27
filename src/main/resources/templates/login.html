@@ -5,7 +5,8 @@
     <title>Log In</title>
 </head>
 <body>
-<th:block th:replace="partials/navbar-main :: signedIn-navbar"/>
+<!--<th:block th:replace="partials/navbar-main :: signedIn-navbar"/>-->
+<th:block th:class="main-navbar" th:replace="partials/navbar-main :: signedIn-navbar"/>
 <h1>Log In</h1>
 <div th:if="${param.error}">
     Invalid Username and Password.

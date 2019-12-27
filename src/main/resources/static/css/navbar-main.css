@@ -2,13 +2,17 @@
     display: flex !important;
     flex-direction: row !important;
     color: white;
-    max-height: 46px;
-    padding-bottom: 53px !important;
+    /*max-height: 46px;*/
+    /*padding-bottom: 53px !important;*/
     background-color: lightseagreen;
 }
 
 #mobileIndex {
     display: none;
+}
+
+#navbarLogoIdx{
+    height: 95px;
 }
 
 
