@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
         <!-- large Nav -->
-        <nav id="largeNav" class="navbar navbar-expand-md navbar-dark mb-4 sidebar">
+        <nav id="largeNav" class=" sidebar" data-color="azure" data-background-color="black" >
             <div class="navbar-fixed">
                 <ul class="nav">
                     <li class="nav-item"><a class="text-decoration-none" th:href="@{'/dashboard'}"><img id="sidebarLogo"
@@ -17,14 +17,15 @@
                     <li class="nav-item" id="quitCoin"><i class="fas fa-smoking-ban"></i> <span>25</span></li>
 
                     <div id="divideDivNavbar"></div>
-
+                    <!--Dashboard link-->
+                    <li class="nav-item"><a class="nav-link" th:href="@{'/dashboard'}"><i class="far fa-file-alt"></i>
+                        Dashboard</a></li>
+<!--                    Profile link-->
                     <li class="nav-item"><a class="nav-link" th:href="@{'/profile/' + ${user.id}}"><i class="fas fa-user"></i>
                         Profile
                     </a></li>
-                    <li
-                            class="nav-item"><a class="nav-link" th:href="@{'/verification'}"><i class="far fa-file-alt"></i>
-                        Verifications
-                    </a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{'/verification'}"><i class="far fa-file-alt"></i>
+                        Verifications</a></li>
                     <li
                             class="nav-item"><a class="nav-link" th:href="@{'/message'}"><i class="far fa-envelope"></i> Messages
                     </a></li>
@@ -51,7 +52,12 @@
                 <ul class="nav">
                     <li class="nav-item"><a class="nav-link" th:href="@{'/profile/' + ${user.id}}"><i
                             class="fas fa-smoking-ban"></i> <span>26</span></a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{'/profile/' + ${user.id}}"><i class="fas fa-user"></i>
+<!--                    Dashboard link-->
+                    <li class="nav-item"><a class="nav-link" th:href="@{'/storeDashboard'}"><i class="fas fa-user"></i>
+                        Dashboard
+                    </a></li>
+<!--                    profile link-->
+                    <li class="nav-item"><a class="nav-link" th:href="@{'/profile' + ${user.id}}"><i class="fas fa-user"></i>
                         Profile
                     </a></li>
                     <li

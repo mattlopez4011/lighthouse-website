@@ -16,11 +16,14 @@
     <section class="parentBox">
         <div class="box box1 card">
             <h3>Inventory</h3>
-            <img class="dash-img" src="/img/charts.jpg" alt="inventory image">
+            <a th:href="@{'/storeDashboard'}"><img class="dash-img" src="/img/charts.jpg" alt="inventory image"></a>
+
         </div>
         <div class="box box2 card">
             <h3>Time Tracking</h3>
-            <img class="dash-img" src="/img/clock-in.jpg" alt="time tracking image">
+<!--            <a th:href="@{/storeDashboard}"><img class="dash-img" src="/img/clock-in.jpg" alt="time tracking image"></a>-->
+            <a th:href="@{'/storeDashboard'}"><img class="dash-img" src="/img/clock-in.jpg" alt="time tracking image"></a>
+
         </div>
         <div class="box box3 card">
             <h3>Register</h3>
