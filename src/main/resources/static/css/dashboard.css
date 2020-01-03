@@ -1,3 +1,35 @@
+body{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 1fr 100px;
+    overflow-x: hidden;
+}
+
+#largeNav{
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    width: 200px;
+    background-color: black;
+    color: white;
+}
+
+.navbar{
+    margin-bottom: 0;
+}
+
+.container{
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    height: max-content;
+}
+
+/*.footer-row{*/
+/*    grid-column: 2 / 3;*/
+/*    grid-row: 3 / 4;*/
+/*    margin-left: 0;*/
+/*    margin-right: 0;*/
+/*}*/
+
 
 .parentBox{
     display: flex;
