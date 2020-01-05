@@ -16,19 +16,21 @@ for (let i = 0; i < a.length ; i++){
 console.log(`Array of letters = ${tempArray}`);
 
 // Compare list of random letters to array of alphabet
-let randomLetters = ["a", "m", "r","t","s"];
-let abcArray = ["d", "j", "k","g","w"];
-let letterCounter = 0;
+let randomLetters = ["l", "o", "v","e"];
+let abcArray = ["t","o","b","i","n"];
+let letterCounter = 1;
 // For Loop
 for (let i=0; i<abcArray.length; i++){
-console.log(abcArray[i]);
-console.log(i);
+// console.log(abcArray[i]);
+// console.log(i);
     for (let a=0; a<tempArray.length; a++){
         if (abcArray[i] === tempArray[a] && letterCounter < a){
             console.log(`${tempArray[a]} matched!`);
+
             letterCounter = a;
         }
     }
+            console.log(`Inside loop letterCounter = ${letterCounter}`);
 } // end of loop
 
 console.log("==============================================");
@@ -36,14 +38,14 @@ console.log("==============================================");
 // Foreach loop
 let letCount = 0;
 tempArray.forEach((letter, index) => {
-    console.log(randomLetters[index]);
-    console.log(index);
-    console.log(letter);
+    // console.log(randomLetters[index]);
+    // console.log(index);
+    // console.log(letter);
 
     for (let i=0; i<randomLetters.length; i++){
 
         if (letter === randomLetters[i] && letCount < index){
-            console.log(`${letter} matched === ${randomLetters[i]}`);
+            // console.log(`${letter} matched === ${randomLetters[i]}`);
             letCount = index;
         }
     }
@@ -56,7 +58,7 @@ console.log(`For loop letterCounter = ${letterCounter}`);
 console.log(`last letter in alphabet = ${tempArray[letterCounter]}`);
 let endSeconds = d.getSeconds();
 let finalTime = endSeconds + startSeconds;
-console.log(`Total runtime in seconds = ${finalTime}'s`);
+console.log(`Total runtime in seconds = ${finalTime}'ms`);
 
 
 
