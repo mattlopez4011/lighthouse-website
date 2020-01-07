@@ -37,7 +37,7 @@ public class User {
     private List<FlavorHistory> flavorsHistory;
     //    Relationship with locations table
     @OneToMany(mappedBy = "user_loc", cascade = CascadeType.ALL)
-    private List<Location> locations;
+    private List<StoreLocation> locations;
     //    Relationship with inventory_details table
     @OneToMany(mappedBy = "user_inventDetails", cascade = CascadeType.ALL)
     private List<InventoryDetails> inventoryDetails;
@@ -60,7 +60,7 @@ public class User {
 
     }
 
-    public User(long id, String name, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<Flavor> flavors, List<FlavorHistory> flavorsHistory, List<Location> locations, List<InventoryDetails> inventoryDetails, List<TimesheetClockIn> timesheetClockIn, List<Register> registers) {
+    public User(long id, String name, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<Flavor> flavors, List<FlavorHistory> flavorsHistory, List<StoreLocation> locations, List<InventoryDetails> inventoryDetails, List<TimesheetClockIn> timesheetClockIn, List<Register> registers) {
         this.id = id;
         this.name = name;
         this.phone_number = phone_number;
@@ -77,7 +77,7 @@ public class User {
         this.registers = registers;
     }
 
-    public User(String name, String username, String password, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<Flavor> flavors, List<FlavorHistory> flavorsHistory, List<Location> locations, List<InventoryDetails> inventoryDetails, List<TimesheetClockIn> timesheetClockIn, List<Register> registers) {
+    public User(String name, String username, String password, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<Flavor> flavors, List<FlavorHistory> flavorsHistory, List<StoreLocation> locations, List<InventoryDetails> inventoryDetails, List<TimesheetClockIn> timesheetClockIn, List<Register> registers) {
         this.name = name;
         this.username = username;
         this.password = password;
@@ -192,11 +192,11 @@ public class User {
         this.flavorsHistory = flavorsHistory;
     }
 
-    public List<Location> getLocations() {
+    public List<StoreLocation> getLocations() {
         return locations;
     }
 
-    public void setLocations(List<Location> locations) {
+    public void setLocations(List<StoreLocation> locations) {
         this.locations = locations;
     }
 

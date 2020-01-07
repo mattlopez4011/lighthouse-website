@@ -4,7 +4,6 @@ package com.lighthouseshavedice.home.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "flavors")
@@ -42,13 +41,13 @@ public class Flavor {
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "location_id")
-    private Location location;
+    private StoreLocation location;
 
     //    Empty Constructor
     public Flavor() {
     }
 
-    public Flavor(String flavor_name, String flavor_color, Double flavor_amt_qt, Integer flavor_amt_gal, String date_created, String created_by_name, String delivered_by_name, Integer days_stored, Boolean is_regular_flavor, Boolean is_specialty_flavor, User user, Location location) {
+    public Flavor(String flavor_name, String flavor_color, Double flavor_amt_qt, Integer flavor_amt_gal, String date_created, String created_by_name, String delivered_by_name, Integer days_stored, Boolean is_regular_flavor, Boolean is_specialty_flavor, User user, StoreLocation location) {
         this.flavor_name = flavor_name;
         this.flavor_color = flavor_color;
         this.flavor_amt_qt = flavor_amt_qt;
@@ -174,11 +173,11 @@ public class Flavor {
         this.user = user;
     }
 
-    public Location getLocation() {
+    public StoreLocation getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(StoreLocation location) {
         this.location = location;
     }
 }
