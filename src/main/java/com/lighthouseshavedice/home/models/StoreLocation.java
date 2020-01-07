@@ -31,6 +31,12 @@ public class StoreLocation {
     //    Relationship with registers table
     @OneToMany(mappedBy = "location_register", cascade = CascadeType.ALL)
     private List<Register> registers;
+    //    Relationship with product_store_history table
+    @OneToMany(mappedBy = "products_store_history")
+    private List<ProductStoreHistory> productStoreHistory;
+    //    Relationship with product_store_history table
+    @OneToMany(mappedBy = "products_store_current")
+    private List<ProductStoreCurrent> productStoreCurrentList;
 
     public StoreLocation() {
     }
