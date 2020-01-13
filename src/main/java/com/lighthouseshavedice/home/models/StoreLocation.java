@@ -18,7 +18,7 @@ public class StoreLocation {
     private String location_address;
 
 //    Relationship with Flavors table
-    @OneToMany(mappedBy = "location", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "flavors", cascade = CascadeType.ALL)
     private List<Flavor> flavors;
     //    Relationship with Users table
     @ManyToOne
