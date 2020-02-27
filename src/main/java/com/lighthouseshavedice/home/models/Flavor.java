@@ -40,7 +40,7 @@ public class Flavor {
 
     //    Empty Constructor
     public Flavor() {
-    }git st
+    }
 
     public Flavor(long id, String flavor_name, String flavor_color, Double flavor_amt_qt, Integer flavor_amt_gal, String date_created, String created_by_name, String delivered_by_name, Integer days_stored, Boolean is_regular_flavor, Boolean is_specialty_flavor, StoreLocation location) {
         this.id = id;
@@ -166,4 +166,6 @@ public class Flavor {
     public void setLocation(StoreLocation location) {
         this.location = location;
     }
+
+
 }

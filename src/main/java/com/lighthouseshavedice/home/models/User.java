@@ -31,7 +31,7 @@ public class User {
 
 
     //    Relationship with flavors_history table
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user_flavorHistory", cascade = CascadeType.ALL)
     private List<FlavorHistory> flavorsHistory;
     //    Relationship with locations table
     @OneToMany(mappedBy = "user_loc", cascade = CascadeType.ALL)

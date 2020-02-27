@@ -16,13 +16,13 @@ public class Warehouse {
 
 //    Database Relationships
 //    Connection with products_base_history Table
-    @OneToMany(mappedBy = "product_base_history", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "warehouse", cascade = CascadeType.ALL)
     private List<ProductBaseHistory> product_base_histories;
     //    Connection with products_base_current Table
-    @OneToMany(mappedBy = "products_base_current", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "warehouse", cascade = CascadeType.ALL)
     private List<ProductBaseCurrent> product_base_currents;
     //    Connection with flavor_history Table
-    @OneToMany(mappedBy = "flavors_history", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "warehouse", cascade = CascadeType.ALL)
     private List<FlavorHistory> flavorHistories;
 
     public Warehouse() {

@@ -18,7 +18,7 @@ public class StoreLocation {
     private String location_address;
 
 //    Relationship with Flavors table
-    @OneToMany(mappedBy = "flavors", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "location", cascade = CascadeType.ALL)
     private List<Flavor> flavors;
     //    Relationship with Users table
     @ManyToOne
@@ -32,10 +32,10 @@ public class StoreLocation {
     @OneToMany(mappedBy = "location_register", cascade = CascadeType.ALL)
     private List<Register> registers;
     //    Relationship with product_store_history table
-    @OneToMany(mappedBy = "products_store_history")
+    @OneToMany(mappedBy = "storeLocation")
     private List<ProductStoreHistory> productStoreHistory;
     //    Relationship with product_store_history table
-    @OneToMany(mappedBy = "products_store_current")
+    @OneToMany(mappedBy = "storeLocation")
     private List<ProductStoreCurrent> productStoreCurrentList;
 
     public StoreLocation() {

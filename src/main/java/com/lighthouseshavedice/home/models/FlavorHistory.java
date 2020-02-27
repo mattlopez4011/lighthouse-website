@@ -31,11 +31,16 @@ public class FlavorHistory {
     @JsonIgnore
     @JoinColumn(name = "warehouse_id")
     private Warehouse warehouse;
+    // Relationships with User
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "user_id")
+    private User user_flavorHistory;
 
     public FlavorHistory() {
     }
 
-    public FlavorHistory(long id, String flavorName, String createdByName, String enteredByName, Date dateMade, Double amtMadeQt, Integer amtMadeGal, Warehouse warehouse) {
+    public FlavorHistory(long id, String flavorName, String createdByName, String enteredByName, Date dateMade, Double amtMadeQt, Integer amtMadeGal, Warehouse warehouse, User user_flavorHistory) {
         this.id = id;
         this.flavorName = flavorName;
         this.createdByName = createdByName;
@@ -44,9 +49,10 @@ public class FlavorHistory {
         this.amtMadeQt = amtMadeQt;
         this.amtMadeGal = amtMadeGal;
         this.warehouse = warehouse;
+        this.user_flavorHistory = user_flavorHistory;
     }
 
-    public FlavorHistory(String flavorName, String createdByName, String enteredByName, Date dateMade, Double amtMadeQt, Integer amtMadeGal, Warehouse warehouse) {
+    public FlavorHistory(String flavorName, String createdByName, String enteredByName, Date dateMade, Double amtMadeQt, Integer amtMadeGal, Warehouse warehouse, User user_flavorHistory) {
         this.flavorName = flavorName;
         this.createdByName = createdByName;
         this.enteredByName = enteredByName;
@@ -54,7 +60,9 @@ public class FlavorHistory {
         this.amtMadeQt = amtMadeQt;
         this.amtMadeGal = amtMadeGal;
         this.warehouse = warehouse;
+        this.user_flavorHistory = user_flavorHistory;
     }
+
 
     public long getId() {
         return id;
@@ -118,5 +126,13 @@ public class FlavorHistory {
 
     public void setWarehouse(Warehouse warehouse) {
         this.warehouse = warehouse;
+    }
+
+    public User getUser_flavorHistory() {
+        return user_flavorHistory;
+    }
+
+    public void setUser_flavorHistory(User user_flavorHistory) {
+        this.user_flavorHistory = user_flavorHistory;
     }
 }
