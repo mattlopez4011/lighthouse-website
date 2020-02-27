@@ -18,3 +18,62 @@ footer{
     grid-column: 1/2;
     grid-row: 3/4;
 }
+
+.green{
+    width: 300px;
+    /*height: 400px;*/
+    background-color: green;
+}
+
+.yellow{
+    width: 300px;
+    /*height: 400px;*/
+    background-color: yellow;
+}
+
+.homeContainer{
+    height: calc(100% - 100px);
+    background-color: lightseagreen;
+}
+
+.rowHome{
+    height: 100%;
+}
+
+
+/*// Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+    .green{
+        margin: 0 auto;
+        z-index: 2;
+        position: absolute;
+    }
+    .yellow{
+        z-index: 1;
+        width: 100vh;
+        height: 100vw;
+        opacity: 0.5;
+        /*display: none;*/
+    }
+
+    .row{
+        flex-wrap: nowrap;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/*// Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+}
+
+/*// Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) { }
+
+/*// Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) { }
+
+/*// Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) { }
