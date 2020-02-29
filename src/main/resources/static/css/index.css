@@ -12,6 +12,7 @@ body{
 .main-container{
     grid-column: 1/2;
     grid-row: 2/3;
+    height: calc(100% - 100px);
 }
 
 footer{
@@ -22,22 +23,90 @@ footer{
 .green{
     width: 300px;
     /*height: 400px;*/
-    background-color: green;
+    /*background-color: black;*/
+
 }
 
+/*.container {*/
+/*    background: url("/img/index/say_no_to_smoking.jpg");*/
+/*    background-size: cover;*/
+/*    background-repeat: no-repeat;*/
+/*    background-position: bottom;*/
+/*    color: white;*/
+/*    max-width: none;*/
+/*    height: 100vh;*/
+/*    grid-column: 1/2;*/
+/*    grid-row: 2/3;*/
+/*}*/
+
 .yellow{
-    width: 300px;
+    /*width: 300px;*/
     /*height: 400px;*/
-    background-color: yellow;
+    /*background-color: yellow;*/
+    background-image: url("/img/redandwhiteLighthouse.jpg");
+    background-size: cover;
+    background-position: 50px 39%;
+    background-repeat:no-repeat;
 }
 
 .homeContainer{
-    height: calc(100% - 100px);
-    background-color: lightseagreen;
+    height: calc(100 - 100px);
+    /*background-color: lightseagreen;*/
 }
 
 .rowHome{
     height: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main-background{
+    height: 100%;
+    display: flex;
+}
+
+.home-loginForm{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.loginForm-card{
+    width: 80vw;
+    position: absolute;
+    height: 60vh;
+    align-self: center;
+    margin: 0;
+    flex-direction: row;
+}
+
+#username-signIn{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 1em;
+    background-image: none;
+    margin: 15px 0;
+}
+
+#password-signIn{
+    padding-left: 1em;
+    background-image: none;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+.background1{
+    /*background-color: lightpink;*/
+    background: rgb(244,192,246);
+    background: linear-gradient(0deg, rgba(244,192,246,1) 0%, rgba(236,179,235,1) 35%, rgba(239,80,245,1) 100%);
+}
+
+.background2{
+    background-color: white;
+}
+
+/*To use font awesome icon in the input field*/
+input[type="text"] {
+    font-family: FontAwesome;
 }
 
 
