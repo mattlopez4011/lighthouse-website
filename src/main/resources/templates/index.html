@@ -36,17 +36,23 @@
                 <div class="green col- col-sm-4">
                     <div class="home-loginForm">
                         <h1>Welcome</h1>
+                        <div id="loginError" th:if="${param.error}">
+                            Invalid Username and Password.
+                        </div>
+                        <div id="logoutMsg" th:if="${isLoggedOut}">
+                            You have been logged out.
+                        </div>
 
                         <div id="loginBox1">
-                            <form action="">
+                            <form th:action="@{/login}" method="post">
                                 <!--                        Username field-->
                                 <!--                            <label for="username-signIn">Username</label>-->
                                 <input class="form-control" type="text" placeholder="&#xf007; Username"
-                                       id="username-signIn">
+                                       id="username-signIn" name="username">
                                 <!--                        Password field-->
                                 <!--                            <label for="password-signIn">Password</label>-->
-                                <input class="form-control" type="text" placeholder="&#xf023; Password"
-                                       id="password-signIn">
+                                <input class="form-control" type="password" placeholder="&#xf023; Password"
+                                       id="password-signIn" name="password">
                                 <!--                        Submit Button-->
                                 <button type="submit" class="btn btn-primary">Login</button>
                             </form>

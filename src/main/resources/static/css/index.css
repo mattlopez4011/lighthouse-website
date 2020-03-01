@@ -68,6 +68,8 @@ footer{
 .home-loginForm{
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
 }
 
 
@@ -78,6 +80,17 @@ footer{
     align-self: center;
     margin: 0;
     flex-direction: row;
+}
+
+#loginError{
+    color: red;
+    font-weight: normal;
+}
+
+#logoutMsg{
+    background-color: lightcoral;
+    color: white;
+    font-weight: normal;
 }
 
 #username-signIn{

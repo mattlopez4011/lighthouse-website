@@ -12,7 +12,11 @@
 }
 
 #navbarLogoIdx{
-    height: 95px;
+    height: 40px;
+}
+
+.icon-a-tag{
+    padding-top: 2px;
 }
 
 
