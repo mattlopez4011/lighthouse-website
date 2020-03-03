@@ -30,25 +30,19 @@ public class DashboardController {
         model.addAttribute("user", signedInUser);
 
 
-        System.out.println("user.getUsername() + user.getId() = " + user.getUsername() + user.getId());
-
         return "dashboard";
     }
 
     @GetMapping("/dashboard/success")
     public String initialLogInDashboard(Model model){
+        Date d = new Date();
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         long id = user.getId();
         User signedInUser = userDao.getOne(id);
         model.addAttribute("user", signedInUser);
-        Date d = new Date();
-
-        System.out.println("Username is signed in " + signedInUser.getUsername());
-        System.out.println("Date signed in " + d);
-        User u = userDao.getOne(id);
 //        Set users login date
-        u.setLast_login(d.toString());
-        userDao.save(u);
+        signedInUser.setLast_login(d.toString());
+        userDao.save(signedInUser);
 
         return "dashboard";
     }
