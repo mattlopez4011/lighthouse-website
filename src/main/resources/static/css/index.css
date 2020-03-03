@@ -20,6 +20,15 @@ footer{
     grid-row: 3/4;
 }
 
+#newUserAlert{
+    z-index: 2;
+    position: absolute;
+    font-size: 26px;
+    bottom: 43em;
+    right: 13em;
+    font-weight: normal;
+}
+
 .green{
     width: 300px;
     /*height: 400px;*/
