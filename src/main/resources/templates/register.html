@@ -26,30 +26,31 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="css/registerUtil.css">
     <link rel="stylesheet" type="text/css" href="css/registerMain.css">
+    <link rel="stylesheet" type="text/css" href="css/register.css">1
     <!--===============================================================================================-->
 </head>
 <body style="background-color: #999999;">
 <th:block th:replace="partials/navbar-main :: signedIn-navbar"/>
-<h1>Create an account</h1>
-<form th:action="@{/register}" method="POST" th:object="${user}">
+<!--<h1>Create an account</h1>-->
+<!--<form th:action="@{/register}" method="POST" th:object="${user}">-->
 
-    <label for="name">Name</label>
-    <input id="name" th:field="*{name}"/>
+<!--    <label for="name">Name</label>-->
+<!--    <input id="name" th:field="*{name}"/>-->
 
-    <label for="username">Username</label>
-    <input id="username" th:field="*{username}" />
+<!--    <label for="username">Username</label>-->
+<!--    <input id="username" th:field="*{username}" />-->
 
-    <label for="password">Password</label>
-    <input id="password" type="password" th:field="*{password}" />
+<!--    <label for="password">Password</label>-->
+<!--    <input id="password" type="password" th:field="*{password}" />-->
 
-    <label for="phone">Phone number</label>
-    <input id="phone" th:field="*{phone_number}">
+<!--    <label for="phone">Phone number</label>-->
+<!--    <input id="phone" th:field="*{phone_number}">-->
 
-    <label for="gender">Gender</label>
-    <input id="gender" th:field="*{gender}">
+<!--    <label for="gender">Gender</label>-->
+<!--    <input id="gender" th:field="*{gender}">-->
 
-    <input value="Sign me up!" type="submit" />
-</form>
+<!--    <input value="Sign me up!" type="submit" />-->
+<!--</form>-->
 
 <!--Template start-->
 <div class="limiter">
@@ -59,7 +60,7 @@
         <div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
             <form class="login100-form validate-form" th:action="@{/register}" method="POST" th:object="${user}">
 					<span class="login100-form-title p-b-59">
-						Sign Up
+						Create New User
 					</span>
 
     <!--                Full Name-->
@@ -69,12 +70,20 @@
                     <span class="focus-input100"></span>
                 </div>
 
-                <!-- Is an Admin-->
-                <div class="wrap-input100 validate-input" data-validate="Is Admin is required">
-                    <span class="label-input100">Admin Permissions</span>
-                    <input class="input100" type="text" name="is_admin" placeholder="Yes / No..." th:field="*{is_admin}">
+                <!--                Username-->
+                <div class="wrap-input100 validate-input" data-validate="Username is required" >
+                    <span class="label-input100">Username</span>
+                    <input class="input100" type="text" name="username" placeholder="Username..." th:field="*{username}">
                     <span class="focus-input100"></span>
                 </div>
+
+                <!--                Password-->
+                <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                    <span class="label-input100">Password</span>
+                    <input class="input100" type="password" name="pass" placeholder="*************" th:field="*{password}">
+                    <span class="focus-input100"></span>
+                </div>
+
 
 <!--                <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">-->
 <!--                    <span class="label-input100">Email</span>-->
@@ -82,18 +91,32 @@
 <!--                    <span class="focus-input100"></span>-->
 <!--                </div>-->
 
+                <!-- Is an Admin-->
+                <div class="wrap-input100 validate-input" data-validate="Is Admin is required">
+                    <span class="label-input100">Admin Permissions</span>
+<!--                    <input class="input100" type="text" name="is_admin" placeholder="Yes / No..." th:field="*{is_admin}">-->
+
+                    <select id="inputState2" class=" form-control registerGender" th:field="*{is_admin}">
+                        <option disabled="true"  value="" selected>Yes / No...</option>
+                        <option value="no">No</option>
+                        <option value="yes">Yes</option>
+                    </select>
+
+                    <span class="focus-input100"></span>
+                </div>
+
 <!--                Phone Number-->
                 <div class="wrap-input100 validate-input" data-validate="Phone number is required" >
                     <span class="label-input100">Phone Number</span>
-                    <input class="input100" type="text" name="phone_number" placeholder="Phone Number..." th:field="*{phone_number}">
+                    <input class="input100" type="number" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" maxlength="10" required name="phone_number" placeholder="Phone Number..." th:field="*{phone_number}">
                     <span class="focus-input100"></span>
                 </div>
 
 <!--                Gender-->
-                <div class="wrap-input100 validate-input" data-validate="Username is required" >
-                    <span class="label-input100">Username</span>
-                    <input class="input100" type="text" name="username" placeholder="Username..." th:field="*{username}">
-                    <select id="inputState" class="form-control" th:field="*{gender}">
+                <div class="wrap-input100 validate-input" data-validate="Gender is required" >
+                    <span class="label-input100">Gender</span>
+<!--                    <input class="input100" type="text" name="username" placeholder="Username..." th:field="*{username}">-->
+                    <select id="inputState" class="form-control registerGender" th:field="*{gender}">
                         <option disabled="true"  value="" selected>Choose...</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
@@ -102,40 +125,32 @@
                     <span class="focus-input100"></span>
                 </div>
 
-<!--                Username-->
-                <div class="wrap-input100 validate-input" data-validate="Username is required" >
-                    <span class="label-input100">Username</span>
-                    <input class="input100" type="text" name="username" placeholder="Username..." th:field="*{username}">
-                    <span class="focus-input100"></span>
+<!--                Profile Picture Upload-->
+                <div class="wrap-input100 ">
+                    <span class="label-input100">Upload Profile Picture (Optional)</span>
+                    <input id="picker" class="file-input" type="file" accept="image/jpeg, image/png"/>
+                    <input type="hidden" id="fileupload" name="profilePic" th:value="${user.profile_pic}"/>
                 </div>
 
-<!--                Password-->
-                <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                    <span class="label-input100">Password</span>
-                    <input class="input100" type="text" name="pass" placeholder="*************" th:field="*{password}">
-                    <span class="focus-input100"></span>
-                </div>
+<!--                <div class="wrap-input100 validate-input" data-validate = "Repeat Password is required">-->
+<!--                    <span class="label-input100">Repeat Password</span>-->
+<!--                    <input class="input100" type="text" name="repeat-pass" placeholder="*************">-->
+<!--                    <span class="focus-input100"></span>-->
+<!--                </div>-->
 
-                <div class="wrap-input100 validate-input" data-validate = "Repeat Password is required">
-                    <span class="label-input100">Repeat Password</span>
-                    <input class="input100" type="text" name="repeat-pass" placeholder="*************">
-                    <span class="focus-input100"></span>
-                </div>
-
-
-
-                <div class="flex-m w-full p-b-33">
-                    <div class="contact100-form-checkbox">
-                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-                        <label class="label-checkbox100" for="ckb1">
-								<span class="txt1">
-									I agree to the
-									<a href="#" class="txt2 hov1">
-										Terms of User
-									</a>
-								</span>
-                        </label>
-                    </div>
+<!--                Remember me and Terms and conditions fields-->
+<!--                <div class="flex-m w-full p-b-33">-->
+<!--                    <div class="contact100-form-checkbox">-->
+<!--                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">-->
+<!--                        <label class="label-checkbox100" for="ckb1">-->
+<!--								<span class="txt1">-->
+<!--									I agree to the-->
+<!--									<a href="#" class="txt2 hov1">-->
+<!--										Terms of User-->
+<!--									</a>-->
+<!--								</span>-->
+<!--                        </label>-->
+<!--                    </div>-->
 
 
                 </div>
@@ -174,6 +189,10 @@
 <script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 <script src="js/registerMain.js"></script>
+<!--===============================================================================================-->
+<!--FileStack API-->
+<script th:src="@{/js/util/filestack.min.js}"></script>
+<script src="/js/util/filestack-impl.js"></script>
 
 </body>
 </html>
