@@ -1,6 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <th:block th:replace="partials/head :: main-header"/>
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
     <link rel="stylesheet" th:href="@{/css/dashboard.css}" />
     <meta charset="UTF-8">
@@ -33,5 +34,11 @@
 </main>
 
 <th:block th:replace="partials/footer-signedIn :: signedIn-footer"/>
+
+<!--<================================================================================>-->
+<script SRC="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script SRC="vendor/bootstrap/js/popper.min.js"></script>
+<script SRC="vendor/bootstrap/js/tooltip.js"></script>
+
 </body>
 </html>
