@@ -10,32 +10,33 @@
         <nav id="largeNav" class=" sidebar" data-color="azure" data-background-color="black" >
             <div class="navbar-fixed">
                 <ul class="nav">
-                    <li class="nav-item"><a class="text-decoration-none" th:href="@{'/dashboard'}"><img id="sidebarLogo"
-                                                                                                        src="/img/shaved-ice-icon.png"></a></li>
-
+<!--                    Shaved ice logo picture-->
+                    <li class="nav-item lgNavLogo"><a class="text-decoration-none" th:href="@{'/dashboard'}"><img id="sidebarLogo" alt="Shaved ice logo" src="/img/shaved-ice-icon.png"></a></li>
+<!--                    Code for showing users points-->
 <!--                    <li class="nav-item" id="quitCoin"><i class="fas fa-smoking-ban"></i> <span th:text="${smoke.points}"></span></li>-->
-                    <li class="nav-item" id="quitCoin"><i class="fas fa-smoking-ban"></i> <span>25</span></li>
 
-                    <div id="divideDivNavbar"></div>
+                    <li id="divideDivNavbar"></li>
                     <!--Dashboard link-->
-                    <li class="nav-item"><a class="nav-link" th:href="@{'/dashboard'}"><i class="material-icons">dashboard</i>
-                        Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{'/dashboard'}"><i class="material-icons"><span class="signedInNavIcon">dashboard</span></i>
+                        <span class="signedInNavText">Dashboard</span></a></li>
 <!--                    Profile link-->
-                    <li class="nav-item"><a class="nav-link" th:href="@{'/profile/' + ${user.id}}"><i class="fas fa-user"></i>
-                        Profile
+                    <li class="nav-item"><a class="nav-link" th:href="@{'/profile/' + ${user.id}}"><i class="fas fa-user signedInNavIcon"></i>
+                        <span class="signedInNavText">Profile</span>
                     </a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{'/verification'}"><i class="far fa-file-alt"></i>
-                        Verifications</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{'/verification'}"><i class="far fa-file-alt signedInNavIcon"></i>
+                        <span class="signedInNavText">Verifications</span></a></li>
                     <li
-                            class="nav-item"><a class="nav-link" th:href="@{'/message'}"><i class="far fa-envelope"></i> Messages
+                            class="nav-item"><a class="nav-link" th:href="@{'/message'}"><i class="far fa-envelope signedInNavIcon"></i>
+                        <span class="signedInNavText">Messages</span>
                     </a></li>
                     <li
-                            class="nav-item"><a class="nav-link" th:href="@{'/logout'}"><i class="fas fa-sign-out-alt"></i> Logout
+                            class="nav-item"><a class="nav-link" th:href="@{'/logout'}"><i class="fas fa-sign-out-alt signedInNavIcon"></i>
+                        <span class="signedInNavText">Logout</span>
                     </a></li>
                     <li class="nav-item">
                     </li>
                     <li
-                            class="nav-item"><a class="nav-link" th:href="@{'/aboutus'}"> About Us
+                            class="nav-item"><a class="nav-link" th:href="@{'/aboutus'}"> <span class="signedInNavText">About Us</span>
                     </a></li>
                 </ul>
             </div>
@@ -53,22 +54,24 @@
                     <li class="nav-item"><a class="nav-link" th:href="@{'/profile/' + ${user.id}}"><i
                             class="fas fa-smoking-ban"></i> <span>26</span></a></li>
 <!--                    Dashboard link-->
-                    <li class="nav-item"><a class="nav-link" th:href="@{'/storeDashboard'}"><i class="fas fa-user"></i>
-                        Dashboard
+                    <li class="nav-item"><a class="nav-link" th:href="@{'/storeDashboard'}"><i class="fas fa-user signedInNavIcon"></i>
+                        <span class="signedInNavText">Dashboard</span>
                     </a></li>
 <!--                    profile link-->
-                    <li class="nav-item"><a class="nav-link" th:href="@{'/profile' + ${user.id}}"><i class="fas fa-user"></i>
-                        Profile
+                    <li class="nav-item"><a class="nav-link" th:href="@{'/profile' + ${user.id}}"><i class="fas fa-user signedInNavIcon"></i>
+                        <span class="signedInNavText">Profile</span>
                     </a></li>
                     <li
-                            class="nav-item"><a class="nav-link" th:href="@{'/verification'}"><i class="far fa-file-alt"></i>
-                        Verifications
+                            class="nav-item"><a class="nav-link" th:href="@{'/verification'}"><i class="far fa-file-alt signedInNavIcon"></i>
+                        <span class="signedInNavText">Verifications</span>
                     </a></li>
                     <li
-                            class="nav-item"><a class="nav-link" th:href="@{'/message'}"><i class="far fa-envelope"></i> Messages
+                            class="nav-item"><a class="nav-link" th:href="@{'/message'}"><i class="far fa-envelope signedInNavIcon"></i>
+                        <span class="signedInNavText">Messages</span>
                     </a></li>
                     <li
-                            class="nav-item"><a class="nav-link" th:href="@{'/logout'}"><i class="fas fa-sign-out-alt"></i> Logout
+                            class="nav-item"><a class="nav-link" th:href="@{'/logout'}"><i class="fas fa-sign-out-alt signedInNavIcon"></i>
+                        <span class="signedInNavText">Logout</span>
                     </a></li>
                     <li class="nav-item">
                     </li>
