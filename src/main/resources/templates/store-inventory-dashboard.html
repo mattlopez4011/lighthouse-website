@@ -20,8 +20,11 @@
 
     <h3>Store Inventory Dashboard</h3>
     <br>
-    <h4>Welcome, <span th:text="${user.name}"></span></h4>
+    <h4>Welcome, <span id="signedInUserName" th:value="${capName}" th:text="${capName}"></span></h4>
+    <input type="hidden" id="test123" th:value="${user.name}"/>
 
+
+<!--    Flavors Table-->
     <div class="row">
         <div class="col-md-12">
         <div class="card">
@@ -37,38 +40,61 @@
                         <thead>
                         <tr>
                             <th class="text-center">#</th>
-                            <th>Name</th>
-                            <th>Job Position</th>
-                            <th>Since</th>
-                            <th class="text-right">Salary</th>
+                            <th>Flavor Name</th>
+                            <th>Quantity Gal.</th>
+                            <th>Quantity Qt.</th>
+                            <th class="">Color</th>
+                            <th class="">Notes</th>
                             <th class="text-right">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <td class="text-center">1</td>
-                            <td>Andrew Mike</td>
-                            <td>Develop</td>
-                            <td>2013</td>
-                            <td class="text-right">&euro; 99,225</td>
-                            <td class="td-actions text-right">
-                                <button type="button" rel="tooltip" class="btn btn-info">
-                                    <i class="material-icons">android</i>
-                                </button>
-                                <button type="button" rel="tooltip" class="btn btn-success">
-                                    <i class="material-icons">edit</i>
-                                </button>
-                                <button type="button" rel="tooltip" class="btn btn-danger">
-                                    <i class="material-icons">close</i>
-                                </button>
+
+                                <!--Numeric Count-->
+                                <td class="text-center">1</td>
+                                <!--Flavor Name-->
+                                <td>Andrew Mike</td>
+                                <!--Quantity Gal.-->
+                                <td>Develop</td>
+
+<!--                                Form Test Quantity Gal.-->
+                            <td>
+                                <form class="formLayout" th:action="'/profile/' + ${users.id} + '/edit'"
+                                      th:method="post" th:object="${user}">
+                                    <input type="text" placeholder="${flavor.flavor_amt_gal}">
+
+                                </form>
                             </td>
+
+                                <!--Quantity Qt.-->
+                                <td>2013</td>
+    <!--                            <td class="text-right">&euro; 99,225</td>-->
+                                <!--Color-->
+                                <td class="">Blue</td>
+                                <!--Notes-->
+                                <td>Just made a Gallon and a half.</td>
+                                <!--3 Action Buttons-->
+                                <td class="td-actions text-right">
+                                    <button type="button" rel="tooltip" class="btn btn-info">
+                                        <i class="material-icons">android</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" class="btn btn-success">
+                                        <i class="material-icons">edit</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" class="btn btn-danger">
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                </td>
+
                         </tr>
                         <tr>
                             <td class="text-center">2</td>
                             <td>John Doe</td>
                             <td>Design</td>
                             <td>2012</td>
-                            <td class="text-right">&euro; 89,241</td>
+                            <td class="">&euro; 89,241</td>
+                            <td>abcdefg...</td>
                             <td class="td-actions text-right">
                                 <button type="button" rel="tooltip" class="btn btn-info btn-round">
                                     <i class="material-icons">person</i>
@@ -86,7 +112,8 @@
                             <td>Alex Mike</td>
                             <td>Design</td>
                             <td>2010</td>
-                            <td class="text-right">&euro; 92,144</td>
+                            <td class="">&euro; 92,144</td>
+                            <td>abcdefg...</td>
                             <td class="td-actions text-right">
                                 <button type="button" rel="tooltip" class="btn btn-info btn-link">
                                     <i class="material-icons">person</i>
@@ -104,7 +131,8 @@
                             <td>Mike Monday</td>
                             <td>Marketing</td>
                             <td>2013</td>
-                            <td class="text-right">&euro; 49,990</td>
+                            <td class="">&euro; 49,990</td>
+                            <td>abcdefg...</td>
                             <td class="td-actions text-right">
                                 <button type="button" rel="tooltip" class="btn btn-info btn-round">
                                     <i class="material-icons">person</i>
@@ -122,7 +150,8 @@
                             <td>Paul Dickens</td>
                             <td>Communication</td>
                             <td>2015</td>
-                            <td class="text-right">&euro; 69,201</td>
+                            <td class="">&euro; 69,201</td>
+                            <td>abcdefg...</td>
                             <td class="td-actions text-right">
                                 <button type="button" rel="tooltip" class="btn btn-info">
                                     <i class="material-icons">person</i>
@@ -284,6 +313,7 @@
     <script src="/js/material-dashboard.js"></script>
     <script src="/js/plugins/perfect-scrollbar.jquery.min.js"></script>
     <script src="/js/demo.js"></script>
+    <script src="js/store-dashboard.js"></script>
 
 </body>
 </html>
