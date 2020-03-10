@@ -60,6 +60,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/ads/{id}/edit" // only authenticated users can edit ads
                 )
                 .authenticated()
+                // Enable spring security with @EnableWebSecurity usage.By default enables csrf support, you have to disable it to prevent Forbidden errors.
+                .and()
+                .csrf().disable();
+
         ;
     }
+
+
+
 }
