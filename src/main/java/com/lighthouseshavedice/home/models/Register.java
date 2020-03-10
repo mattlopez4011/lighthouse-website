@@ -1,7 +1,6 @@
 package com.lighthouseshavedice.home.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jdk.jfr.Category;
 
 import javax.persistence.*;
 import java.util.List;
@@ -36,12 +35,15 @@ public class Register {
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "location_id")
-    private Location location_register;
+    private StoreLocation location_register;
+    //    Relationship with sales table
+    @OneToMany(mappedBy = "register_sale", cascade = CascadeType.ALL)
+    private List<Sale> sales;
 
     public Register() {
     }
 
-    public Register(long id, String cashierName, String paymentMethod, String timeOfSale, Float saleAmount, Float taxAmount, Float discountAmount, Integer itemsSold, User user_register, Location location_register) {
+    public Register(long id, String cashierName, String paymentMethod, String timeOfSale, Float saleAmount, Float taxAmount, Float discountAmount, Integer itemsSold, User user_register, StoreLocation location_register, List<Sale> sales) {
         this.id = id;
         this.cashierName = cashierName;
         this.paymentMethod = paymentMethod;
@@ -52,9 +54,10 @@ public class Register {
         this.itemsSold = itemsSold;
         this.user_register = user_register;
         this.location_register = location_register;
+        this.sales = sales;
     }
 
-    public Register(String cashierName, String paymentMethod, String timeOfSale, Float saleAmount, Float taxAmount, Float discountAmount, Integer itemsSold, User user_register, Location location_register) {
+    public Register(String cashierName, String paymentMethod, String timeOfSale, Float saleAmount, Float taxAmount, Float discountAmount, Integer itemsSold, User user_register, StoreLocation location_register, List<Sale> sales) {
         this.cashierName = cashierName;
         this.paymentMethod = paymentMethod;
         this.timeOfSale = timeOfSale;
@@ -64,6 +67,7 @@ public class Register {
         this.itemsSold = itemsSold;
         this.user_register = user_register;
         this.location_register = location_register;
+        this.sales = sales;
     }
 
     public long getId() {
@@ -138,12 +142,19 @@ public class Register {
         this.user_register = user_register;
     }
 
-    public Location getLocation_register() {
+    public StoreLocation getLocation_register() {
         return location_register;
     }
 
-    public void setLocation_register(Location location_register) {
+    public void setLocation_register(StoreLocation location_register) {
         this.location_register = location_register;
     }
 
+    public List<Sale> getSales() {
+        return sales;
+    }
+
+    public void setSales(List<Sale> sales) {
+        this.sales = sales;
+    }
 }

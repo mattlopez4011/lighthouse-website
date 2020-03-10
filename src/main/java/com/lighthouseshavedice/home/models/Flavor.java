@@ -4,7 +4,6 @@ package com.lighthouseshavedice.home.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "flavors")
@@ -33,37 +32,17 @@ public class Flavor {
     @Column(columnDefinition = "BOOLEAN")
     private Boolean is_specialty_flavor;
 
-    //    Relationships with User table
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "user_id")
-    private User user;
     //    Relationships with Location table
     @ManyToOne
     @JsonIgnore
-    @JoinColumn(name = "location_id")
-    private Location location;
+    @JoinColumn(name = "store_location_id")
+    private StoreLocation location;
 
     //    Empty Constructor
     public Flavor() {
     }
 
-    public Flavor(String flavor_name, String flavor_color, Double flavor_amt_qt, Integer flavor_amt_gal, String date_created, String created_by_name, String delivered_by_name, Integer days_stored, Boolean is_regular_flavor, Boolean is_specialty_flavor, User user, Location location) {
-        this.flavor_name = flavor_name;
-        this.flavor_color = flavor_color;
-        this.flavor_amt_qt = flavor_amt_qt;
-        this.flavor_amt_gal = flavor_amt_gal;
-        this.date_created = date_created;
-        this.created_by_name = created_by_name;
-        this.delivered_by_name = delivered_by_name;
-        this.days_stored = days_stored;
-        this.is_regular_flavor = is_regular_flavor;
-        this.is_specialty_flavor = is_specialty_flavor;
-        this.user = user;
-        this.location = location;
-    }
-
-    public Flavor(long id, String flavor_name, String flavor_color, Double flavor_amt_qt, Integer flavor_amt_gal, String date_created, String created_by_name, String delivered_by_name, Integer days_stored, Boolean is_regular_flavor, Boolean is_specialty_flavor, User user) {
+    public Flavor(long id, String flavor_name, String flavor_color, Double flavor_amt_qt, Integer flavor_amt_gal, String date_created, String created_by_name, String delivered_by_name, Integer days_stored, Boolean is_regular_flavor, Boolean is_specialty_flavor, StoreLocation location) {
         this.id = id;
         this.flavor_name = flavor_name;
         this.flavor_color = flavor_color;
@@ -75,7 +54,21 @@ public class Flavor {
         this.days_stored = days_stored;
         this.is_regular_flavor = is_regular_flavor;
         this.is_specialty_flavor = is_specialty_flavor;
-        this.user = user;
+        this.location = location;
+    }
+
+    public Flavor(String flavor_name, String flavor_color, Double flavor_amt_qt, Integer flavor_amt_gal, String date_created, String created_by_name, String delivered_by_name, Integer days_stored, Boolean is_regular_flavor, Boolean is_specialty_flavor, StoreLocation location) {
+        this.flavor_name = flavor_name;
+        this.flavor_color = flavor_color;
+        this.flavor_amt_qt = flavor_amt_qt;
+        this.flavor_amt_gal = flavor_amt_gal;
+        this.date_created = date_created;
+        this.created_by_name = created_by_name;
+        this.delivered_by_name = delivered_by_name;
+        this.days_stored = days_stored;
+        this.is_regular_flavor = is_regular_flavor;
+        this.is_specialty_flavor = is_specialty_flavor;
+        this.location = location;
     }
 
     public long getId() {
@@ -166,19 +159,13 @@ public class Flavor {
         this.is_specialty_flavor = is_specialty_flavor;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Location getLocation() {
+    public StoreLocation getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(StoreLocation location) {
         this.location = location;
     }
+
+
 }

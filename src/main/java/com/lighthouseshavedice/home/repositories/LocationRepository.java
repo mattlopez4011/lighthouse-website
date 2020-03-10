@@ -1,9 +1,9 @@
 package com.lighthouseshavedice.home.repositories;
 
-import com.lighthouseshavedice.home.models.Location;
+import com.lighthouseshavedice.home.models.StoreLocation;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface LocationRepository extends JpaRepository<Location, Long> {
+public interface LocationRepository extends JpaRepository<StoreLocation, Long> {
 
 
 }

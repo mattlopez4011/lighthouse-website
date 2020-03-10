@@ -7,8 +7,8 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "locations")
-public class Location {
+@Table(name = "store_locations")
+public class StoreLocation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -27,15 +27,21 @@ public class Location {
     private User user_loc;
     //    Relationship with locations table
     @OneToMany(mappedBy = "user_loc", cascade = CascadeType.ALL)
-    private List<Location> locations;
+    private List<StoreLocation> locations;
     //    Relationship with registers table
     @OneToMany(mappedBy = "location_register", cascade = CascadeType.ALL)
     private List<Register> registers;
+    //    Relationship with product_store_history table
+    @OneToMany(mappedBy = "storeLocation")
+    private List<ProductStoreHistory> productStoreHistory;
+    //    Relationship with product_store_history table
+    @OneToMany(mappedBy = "storeLocation")
+    private List<ProductStoreCurrent> productStoreCurrentList;
 
-    public Location() {
+    public StoreLocation() {
     }
 
-    public Location(long id, String location_name, String location_address, List<Flavor> flavors, User user_loc, List<Location> locations, List<Register> registers) {
+    public StoreLocation(long id, String location_name, String location_address, List<Flavor> flavors, User user_loc, List<StoreLocation> locations, List<Register> registers) {
         this.id = id;
         this.location_name = location_name;
         this.location_address = location_address;
@@ -45,7 +51,7 @@ public class Location {
         this.registers = registers;
     }
 
-    public Location(String location_name, String location_address, List<Flavor> flavors, User user_loc, List<Location> locations, List<Register> registers) {
+    public StoreLocation(String location_name, String location_address, List<Flavor> flavors, User user_loc, List<StoreLocation> locations, List<Register> registers) {
         this.location_name = location_name;
         this.location_address = location_address;
         this.flavors = flavors;
@@ -96,11 +102,11 @@ public class Location {
         this.user_loc = user_loc;
     }
 
-    public List<Location> getLocations() {
+    public List<StoreLocation> getLocations() {
         return locations;
     }
 
-    public void setLocations(List<Location> locations) {
+    public void setLocations(List<StoreLocation> locations) {
         this.locations = locations;
     }
 

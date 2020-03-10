@@ -37,7 +37,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 /* Login configuration */
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/dashboard") // user's home page, it can be any URL
+                .defaultSuccessUrl("/dashboard/success") // user's home page, it can be any URL
                 .permitAll() // Anyone can go to the login page
                 /* Logout configuration */
                 .and()
@@ -53,10 +53,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(
                         "/dashboard",
+                        "/dashboard/success",
+                        "/register",
+                        "/storeDashboard",
                         "/ads/create", // only authenticated users can create ads
                         "/ads/{id}/edit" // only authenticated users can edit ads
                 )
                 .authenticated()
+                // Enable spring security with @EnableWebSecurity usage.By default enables csrf support, you have to disable it to prevent Forbidden errors.
+                .and()
+                .csrf().disable();
+
         ;
     }
+
+
+
 }

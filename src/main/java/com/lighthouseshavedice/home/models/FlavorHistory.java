@@ -4,6 +4,7 @@ package com.lighthouseshavedice.home.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "flavors_history")
@@ -18,22 +19,28 @@ public class FlavorHistory {
     @Column(columnDefinition = "VARCHAR(50)")
     private String enteredByName;
     @Column(columnDefinition = "DATE")
-    private String dateMade;
+    private Date dateMade;
     @Column(columnDefinition = "DOUBLE")
-    private String amtMadeQt;
+    private Double amtMadeQt;
     @Column(columnDefinition = "INT")
-    private String amtMadeGal;
+    private Integer amtMadeGal;
 
-    //    Relationships with User table
+    //    Database Relationships
+    //    Relationships with warehouse table
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "warehouse_id")
+    private Warehouse warehouse;
+    // Relationships with User
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "user_id")
-    private User user;
+    private User user_flavorHistory;
 
     public FlavorHistory() {
     }
 
-    public FlavorHistory(long id, String flavorName, String createdByName, String enteredByName, String dateMade, String amtMadeQt, String amtMadeGal) {
+    public FlavorHistory(long id, String flavorName, String createdByName, String enteredByName, Date dateMade, Double amtMadeQt, Integer amtMadeGal, Warehouse warehouse, User user_flavorHistory) {
         this.id = id;
         this.flavorName = flavorName;
         this.createdByName = createdByName;
@@ -41,17 +48,21 @@ public class FlavorHistory {
         this.dateMade = dateMade;
         this.amtMadeQt = amtMadeQt;
         this.amtMadeGal = amtMadeGal;
+        this.warehouse = warehouse;
+        this.user_flavorHistory = user_flavorHistory;
     }
 
-    public FlavorHistory(String flavorName, String createdByName, String enteredByName, String dateMade, String amtMadeQt, String amtMadeGal, User user) {
+    public FlavorHistory(String flavorName, String createdByName, String enteredByName, Date dateMade, Double amtMadeQt, Integer amtMadeGal, Warehouse warehouse, User user_flavorHistory) {
         this.flavorName = flavorName;
         this.createdByName = createdByName;
         this.enteredByName = enteredByName;
         this.dateMade = dateMade;
         this.amtMadeQt = amtMadeQt;
         this.amtMadeGal = amtMadeGal;
-        this.user = user;
+        this.warehouse = warehouse;
+        this.user_flavorHistory = user_flavorHistory;
     }
+
 
     public long getId() {
         return id;
@@ -85,35 +96,43 @@ public class FlavorHistory {
         this.enteredByName = enteredByName;
     }
 
-    public String getDateMade() {
+    public Date getDateMade() {
         return dateMade;
     }
 
-    public void setDateMade(String dateMade) {
+    public void setDateMade(Date dateMade) {
         this.dateMade = dateMade;
     }
 
-    public String getAmtMadeQt() {
+    public Double getAmtMadeQt() {
         return amtMadeQt;
     }
 
-    public void setAmtMadeQt(String amtMadeQt) {
+    public void setAmtMadeQt(Double amtMadeQt) {
         this.amtMadeQt = amtMadeQt;
     }
 
-    public String getAmtMadeGal() {
+    public Integer getAmtMadeGal() {
         return amtMadeGal;
     }
 
-    public void setAmtMadeGal(String amtMadeGal) {
+    public void setAmtMadeGal(Integer amtMadeGal) {
         this.amtMadeGal = amtMadeGal;
     }
 
-    public User getUser() {
-        return user;
+    public Warehouse getWarehouse() {
+        return warehouse;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setWarehouse(Warehouse warehouse) {
+        this.warehouse = warehouse;
+    }
+
+    public User getUser_flavorHistory() {
+        return user_flavorHistory;
+    }
+
+    public void setUser_flavorHistory(User user_flavorHistory) {
+        this.user_flavorHistory = user_flavorHistory;
     }
 }

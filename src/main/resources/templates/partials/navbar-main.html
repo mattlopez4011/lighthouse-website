@@ -4,16 +4,21 @@
         <link rel="stylesheet" th:href="@{/css/navbar-main.css}"/>
 
                 <nav id="largeIndex" class="navbar navbar-expand-md justify-content-between">
-                    <a class="text-decoration-none navbar-brand text-white"><img id="navbarLogoIdx" src="/img/Logo/shNavbarBrandLogo.png"></a>
+                    <a class="icon-a-tag text-decoration-none navbar-brand text-white" th:href="@{'/home'}"><img id="navbarLogoIdx" src="/img/shaved-ice-icon.png"></a>
+<!--                    <li class="nav-item"><a class="text-decoration-none" th:href="@{'/dashboard'}"><img id="sidebarLogo"-->
+<!--                                                                                                        src="/img/shaved-ice-icon.png"></a></li>-->
 
                     <div class="navbar-fixed">
                         <ul class="nav">
+<!--                            Login-->
                             <li class="nav-item navbar-right">
                                 <a class="nav-link" href="/login">Login</a>
                             </li>
-                            <li class="nav-item navbar-right">
-                                <a class="nav-link" href="/register">Register</a>
-                            </li>
+<!--                            Register-->
+<!--                            <li class="nav-item navbar-right">-->
+<!--                                <a class="nav-link" href="/register">Register</a>-->
+<!--                            </li>-->
+<!--                            About Us-->
                             <li class="nav-item navbar-right">
                                 <a class="nav-link" href="/aboutus">About Us</a>
                             </li>

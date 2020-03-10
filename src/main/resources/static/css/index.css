@@ -1,7 +1,7 @@
 body{
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 60px 100% 100px;
+    grid-template-rows: 100px 100% 100px;
 }
 
 .main-navbar{
@@ -12,9 +12,159 @@ body{
 .main-container{
     grid-column: 1/2;
     grid-row: 2/3;
+    height: calc(100% - 100px);
 }
 
 footer{
     grid-column: 1/2;
     grid-row: 3/4;
 }
+
+#newUserAlert{
+    z-index: 2;
+    position: absolute;
+    font-size: 26px;
+    bottom: 43em;
+    right: 13em;
+    font-weight: normal;
+}
+
+.green{
+    width: 300px;
+    /*height: 400px;*/
+    /*background-color: black;*/
+
+}
+
+/*.container {*/
+/*    background: url("/img/index/say_no_to_smoking.jpg");*/
+/*    background-size: cover;*/
+/*    background-repeat: no-repeat;*/
+/*    background-position: bottom;*/
+/*    color: white;*/
+/*    max-width: none;*/
+/*    height: 100vh;*/
+/*    grid-column: 1/2;*/
+/*    grid-row: 2/3;*/
+/*}*/
+
+.yellow{
+    /*width: 300px;*/
+    /*height: 400px;*/
+    /*background-color: yellow;*/
+    background-image: url("/img/redandwhiteLighthouse.jpg");
+    background-size: cover;
+    background-position: 50px 39%;
+    background-repeat:no-repeat;
+}
+
+.homeContainer{
+    height: calc(100 - 100px);
+    /*background-color: lightseagreen;*/
+}
+
+.rowHome{
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main-background{
+    height: 100%;
+    display: flex;
+}
+
+.home-loginForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+
+.loginForm-card{
+    width: 80vw;
+    position: absolute;
+    height: 60vh;
+    align-self: center;
+    margin: 0;
+    flex-direction: row;
+}
+
+#loginError{
+    color: red;
+    font-weight: normal;
+}
+
+#logoutMsg{
+    background-color: lightcoral;
+    color: white;
+    font-weight: normal;
+}
+
+#username-signIn{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 1em;
+    background-image: none;
+    margin: 15px 0;
+}
+
+#password-signIn{
+    padding-left: 1em;
+    background-image: none;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+.background1{
+    /*background-color: lightpink;*/
+    background: rgb(244,192,246);
+    background: linear-gradient(0deg, rgba(244,192,246,1) 0%, rgba(236,179,235,1) 35%, rgba(239,80,245,1) 100%);
+}
+
+.background2{
+    background-color: white;
+}
+
+/*To use font awesome icon in the input field*/
+input[type="text"] {
+    font-family: FontAwesome;
+}
+
+
+/*// Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+    .green{
+        margin: 0 auto;
+        z-index: 2;
+        position: absolute;
+    }
+    .yellow{
+        z-index: 1;
+        width: 100vh;
+        height: 100vw;
+        opacity: 0.5;
+        /*display: none;*/
+    }
+
+    .row{
+        flex-wrap: nowrap;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/*// Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+}
+
+/*// Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) { }
+
+/*// Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) { }
+
+/*// Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) { }

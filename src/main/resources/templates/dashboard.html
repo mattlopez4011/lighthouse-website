@@ -1,6 +1,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <th:block th:replace="partials/head :: main-header"/>
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/material-dashboard.min.css">
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
     <link rel="stylesheet" th:href="@{/css/dashboard.css}" />
     <meta charset="UTF-8">
@@ -14,21 +16,30 @@
     <br>
     <h1>Choose one:</h1>
     <section class="parentBox">
-        <div class="box box1">
+        <div class="box box1 card">
             <h3>Inventory</h3>
-            <img class="dash-img" src="/img/charts.jpg" alt="inventory image">
+            <a th:href="@{'/storeDashboard'}"><img class="dash-img" src="/img/charts.jpg" alt="inventory image"></a>
+
         </div>
-        <div class="box box2">
+        <div class="box box2 card">
             <h3>Time Tracking</h3>
-            <img class="dash-img" src="/img/clock-in.jpg" alt="time tracking image">
+<!--            <a th:href="@{/storeDashboard}"><img class="dash-img" src="/img/clock-in.jpg" alt="time tracking image"></a>-->
+            <a th:href="@{'/storeDashboard'}"><img class="dash-img" src="/img/clock-in.jpg" alt="time tracking image"></a>
+
         </div>
-        <div class="box box3">
+        <div class="box box3 card">
             <h3>Register</h3>
             <img class="dash-img" src="/img/register.png" alt="cash register image">
         </div>
     </section>
 </main>
 
-<th:block th:replace="partials/footer :: main-footer"/>
+<th:block th:replace="partials/footer-signedIn :: signedIn-footer"/>
+
+<!--<================================================================================>-->
+<script SRC="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script SRC="vendor/bootstrap/js/popper.min.js"></script>
+<script SRC="vendor/bootstrap/js/tooltip.js"></script>
+
 </body>
 </html>

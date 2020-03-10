@@ -11,13 +11,10 @@
 
 <main class="container">
     <h1><span th:text="${user.name}"></span>'s Profile</h1>
+    <a th:href="@{'/profile/' + ${user.id} + '/edit'}" class="btn btn-warning editProfileBtn" id="smB">Edit Profile</a>
 </main>
 
 
-    <a th:href="@{'/profile/' + ${user.id} + '/edit'}" class="btn btn-warning editProfileBtn" id="smB">Edit Profile</a>
-
-
-
-<th:block th:replace="partials/footer :: main-footer"/>
+<th:block th:replace="partials/footer-signedIn :: signedIn-footer"/>
 </body>
 </html>

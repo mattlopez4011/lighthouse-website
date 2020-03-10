@@ -29,15 +29,13 @@ public class User {
     @Column(columnDefinition = "BOOLEAN")
     private Boolean is_admin;
 
-            //    Relationship with flavors table
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Flavor> flavors;
+
     //    Relationship with flavors_history table
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user_flavorHistory", cascade = CascadeType.ALL)
     private List<FlavorHistory> flavorsHistory;
     //    Relationship with locations table
     @OneToMany(mappedBy = "user_loc", cascade = CascadeType.ALL)
-    private List<Location> locations;
+    private List<StoreLocation> locations;
     //    Relationship with inventory_details table
     @OneToMany(mappedBy = "user_inventDetails", cascade = CascadeType.ALL)
     private List<InventoryDetails> inventoryDetails;
@@ -60,8 +58,7 @@ public class User {
 
     }
 
-    public User(long id, String name, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<Flavor> flavors, List<FlavorHistory> flavorsHistory, List<Location> locations, List<InventoryDetails> inventoryDetails, List<TimesheetClockIn> timesheetClockIn, List<Register> registers) {
-        this.id = id;
+    public User(String name, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<FlavorHistory> flavorsHistory, List<StoreLocation> locations, List<InventoryDetails> inventoryDetails, List<TimesheetClockIn> timesheetClockIn, List<Register> registers) {
         this.name = name;
         this.phone_number = phone_number;
         this.gender = gender;
@@ -69,7 +66,6 @@ public class User {
         this.last_login = last_login;
         this.date_created = date_created;
         this.is_admin = is_admin;
-        this.flavors = flavors;
         this.flavorsHistory = flavorsHistory;
         this.locations = locations;
         this.inventoryDetails = inventoryDetails;
@@ -77,7 +73,7 @@ public class User {
         this.registers = registers;
     }
 
-    public User(String name, String username, String password, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<Flavor> flavors, List<FlavorHistory> flavorsHistory, List<Location> locations, List<InventoryDetails> inventoryDetails, List<TimesheetClockIn> timesheetClockIn, List<Register> registers) {
+    public User(String name, String username, String password, String phone_number, String gender, String profile_pic, String last_login, String date_created, Boolean is_admin, List<FlavorHistory> flavorsHistory, List<StoreLocation> locations, List<InventoryDetails> inventoryDetails, List<TimesheetClockIn> timesheetClockIn, List<Register> registers) {
         this.name = name;
         this.username = username;
         this.password = password;
@@ -87,7 +83,6 @@ public class User {
         this.last_login = last_login;
         this.date_created = date_created;
         this.is_admin = is_admin;
-        this.flavors = flavors;
         this.flavorsHistory = flavorsHistory;
         this.locations = locations;
         this.inventoryDetails = inventoryDetails;
@@ -96,6 +91,7 @@ public class User {
     }
 
     //    Getters and Setters
+
     public long getId() {
         return id;
     }
@@ -176,14 +172,6 @@ public class User {
         this.is_admin = is_admin;
     }
 
-    public List<Flavor> getFlavors() {
-        return flavors;
-    }
-
-    public void setFlavors(List<Flavor> flavors) {
-        this.flavors = flavors;
-    }
-
     public List<FlavorHistory> getFlavorsHistory() {
         return flavorsHistory;
     }
@@ -192,11 +180,11 @@ public class User {
         this.flavorsHistory = flavorsHistory;
     }
 
-    public List<Location> getLocations() {
+    public List<StoreLocation> getLocations() {
         return locations;
     }
 
-    public void setLocations(List<Location> locations) {
+    public void setLocations(List<StoreLocation> locations) {
         this.locations = locations;
     }
 

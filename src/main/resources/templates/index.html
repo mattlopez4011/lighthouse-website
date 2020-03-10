@@ -1,17 +1,89 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
+        <!-- Standard Meta -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<!--        Site Properties-->
         <th:block th:replace="partials/head :: main-header"/>
         <link rel="stylesheet" th:href="@{/css/styles.css}"/>
         <link rel="stylesheet" th:href="@{/css/index.css}"/>
-        <meta charset="UTF-8">
+<!--        Semantic Ui CSS and JS-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+<!--        Font Awesome 4.7 CDN -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
+
         <title>Home</title>
     </head>
     <body>
+<!--    <div class="row">-->
         <th:block th:class="main-navbar" th:replace="partials/navbar-main :: signedIn-navbar"/>
-            <main class="main-container">
-                <h1>Welcome to home page </h1>
+        <main class="main-container">
 
-            </main>
-        <th:block th:replace="partials/footer-main :: main-footer"/>
+
+    <div class="container-fluid homeContainer">
+        <div class="row rowHome">
+            <div class="main-background">
+<!--            Pink Gradient background-->
+            <div class="background1 col-sm-6"></div>
+            <!--            White Background-->
+            <div class="background2 col-sm-6"></div>
+            </div>
+
+<!--            New User Alert Popup-->
+            <div class="alert-success" id="newUserAlert" th:if="${param.successNewUser}">
+                Success! New User Created. <i class="fa fa-smile-o"></i>
+            </div>
+
+<!--            Login in form and picture card-->
+            <div class="card row loginForm-card">
+                <div class="green col- col-sm-4">
+                    <div class="home-loginForm">
+                        <h2>Welcome</h2>
+                        <div id="loginError" th:if="${param.error}">
+                            Invalid Username and Password.
+                        </div>
+                        <div id="logoutMsg" th:if="${isLoggedOut}">
+                            You have been logged out.
+                        </div>
+
+                        <div id="loginBox1">
+                            <form th:action="@{/login}" method="post">
+                                <!--                        Username field-->
+                                <!--                            <label for="username-signIn">Username</label>-->
+                                <input class="form-control" type="text" placeholder="&#xf007; Username"
+                                       id="username-signIn" name="username">
+                                <!--                        Password field-->
+                                <!--                            <label for="password-signIn">Password</label>-->
+                                <input class="form-control" type="password" placeholder="&#xf023; Password"
+                                       id="password-signIn" name="password">
+                                <!--                        Submit Button-->
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </form>
+                            <a href="">Forgot Password?</a>
+                        </div>
+
+                        <div id="loginBox2">
+                            <hr id="loginFormHr">
+                            <span>New User?</span> <a href="/register">Create Your Account!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="yellow col-sm-8"></div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+
+        </main>
+<!--        <th:block th:replace="partials/footer-main :: main-footer"/>-->
+<!--    </div>-->
+        <script src="/js/practice.js"></script>
     </body>
 </html>
